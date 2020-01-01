@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
-[ext_resource path="res://assets/assets/graphics/arrow.png" type="Texture" id=2]
-[ext_resource path="res://Arrowsprite.gd" type="Script" id=3]
-[ext_resource path="res://Camera.gd" type="Script" id=4]
-[ext_resource path="res://assets/maps/testcourse.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://MeshInstance.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Golf_Ball.gd" type="Script" id=2]
+[ext_resource path="res://assets/assets/graphics/arrow.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Arrow.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Golf_Camera.gd" type="Script" id=5]
+[ext_resource path="res://assets/maps/testcourse.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://Scripts/Course_Setup.gd" type="Script" id=7]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.2
@@ -20,6 +21,7 @@ environment = ExtResource( 1 )
 
 [node name="Ball" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.15376 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ball"]
 shape = SubResource( 1 )
@@ -31,18 +33,18 @@ material/0 = null
 
 [node name="Sprite3D" type="Sprite3D" parent="Ball"]
 axis = 1
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="camfollow" type="Spatial" parent="Ball"]
 
 [node name="Camera" type="Camera" parent="Ball/camfollow"]
 transform = Transform( 0.999111, 0, 0, 0, 0.999111, 0, 0, 0, 0.999111, 0, 1.95166, 3.15376 )
 environment = ExtResource( 1 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="Course" type="MeshInstance" parent="."]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.880522, -1.47084, -3.0935 )
-mesh = ExtResource( 5 )
+mesh = ExtResource( 6 )
 material/0 = null
-script = ExtResource( 6 )
+script = ExtResource( 7 )
