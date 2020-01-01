@@ -9,6 +9,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
+	return
 	var ray_length = 1000
 	var max_power = 500
 	var end_dist = 1
