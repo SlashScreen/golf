@@ -17,15 +17,15 @@ transform = Transform( 1.00089, 0, 0, 0, 1.00089, 0, 0, 0, 1.00089, 0, 0, 0 )
 [node name="Ball" type="RigidBody" parent="."]
 script = ExtResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Ball"]
+[node name="Spherecollider" type="CollisionShape" parent="Ball"]
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Ball"]
+[node name="Ballmesh" type="MeshInstance" parent="Ball"]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="Sprite3D" type="Sprite3D" parent="Ball"]
+[node name="Arrow" type="Sprite3D" parent="Ball"]
 axis = 1
 texture = ExtResource( 2 )
 script = ExtResource( 3 )

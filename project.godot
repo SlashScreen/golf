@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="AsteroidBlastersDeluxe"
+config/name="its_golf"
 run/main_scene="res://Levels/test_level.tscn"
 config/icon="res://assets/assets/graphics/icon.png"
 
