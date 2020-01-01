@@ -1,6 +1,6 @@
 extends Area
 #Note: Kill volume must always be under root
-#signal oob
+signal oob
 func _ready():
 	pass
 	#print(get_parent().name)
@@ -9,4 +9,4 @@ func _ready():
 func _on_Area_body_entered(body):
 	print(body.name)
 	body.reset()
-	#emit_signal("oob")
+	emit_signal("oob")

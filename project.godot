@@ -19,6 +19,10 @@ config/name="its_golf"
 run/main_scene="res://Levels/test_level.tscn"
 config/icon="res://assets/assets/graphics/icon.png"
 
+[autoload]
+
+Signal_Router="*res://Scripts/Signal_Router.gd"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
