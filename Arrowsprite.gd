@@ -8,11 +8,11 @@ var max_power = 15
 var end_dist = 7
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_as_toplevel(true)
 #input
 func _input(event):
 	#raycast
-	var cam = get_parent().get_parent().get_node("Camera")
+	var cam = get_parent().get_node("camfollow/Camera")
 	var space_state = cam.get_world().direct_space_state
 	var mouse = event.position #event position
 	var from = cam.project_ray_origin(mouse) #get origin
@@ -30,3 +30,6 @@ func _input(event):
 		set_scale(Vector3(1,1,d/end_dist))
 		if event is InputEventMouseButton and event.pressed and event.button_index == 1: #if mouse button clicked
 			ball.apply_central_impulse(newdir*((d/end_dist)*max_power)) #apply impulse
+
+func _process(delta):
+	set_translation(get_parent().get_translation())
