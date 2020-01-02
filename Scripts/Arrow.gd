@@ -7,7 +7,8 @@ var end_dist = 7
 export var last_pos = Vector3(0,0,0)
 
 func _ready():
-	set_as_toplevel(true)
+	#set_as_toplevel(true)
+	pass
 
 func _input(event):
 	#raycast
@@ -28,12 +29,12 @@ func _input(event):
 		look_at(result.position,Vector3(0,1,0)) #set_rotation(Vector3(0,newdir.y,0))
 		set_scale(Vector3(1,1,d/end_dist))
 		if event is InputEventMouseButton and event.pressed and event.button_index == 1 and ball.STATE == "still": #if mouse button clicked
-			last_pos = to_global(get_translation())
+			last_pos = ball.get_translation()
 			ball.apply_central_impulse(newdir*((d/end_dist)*max_power)) #apply impulse
 
 func _process(delta):
+	#set_translation(get_parent().get_translation())
 	if get_parent().STATE == "still":
 		show()
-		set_translation(get_parent().get_translation())
 	else:
 		hide()
