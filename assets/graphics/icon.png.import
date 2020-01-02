@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/arrow.png-14e44009baaad48151de79b8fda033c6.s3tc.stex"
-path.etc2="res://.import/arrow.png-14e44009baaad48151de79b8fda033c6.etc2.stex"
+path.s3tc="res://.import/icon.png-bf0153a4f8e5a81dc211a31406b69a9c.s3tc.stex"
+path.etc2="res://.import/icon.png-bf0153a4f8e5a81dc211a31406b69a9c.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/assets/graphics/arrow.png"
-dest_files=[ "res://.import/arrow.png-14e44009baaad48151de79b8fda033c6.s3tc.stex", "res://.import/arrow.png-14e44009baaad48151de79b8fda033c6.etc2.stex" ]
+source_file="res://assets/graphics/icon.png"
+dest_files=[ "res://.import/icon.png-bf0153a4f8e5a81dc211a31406b69a9c.s3tc.stex", "res://.import/icon.png-bf0153a4f8e5a81dc211a31406b69a9c.etc2.stex" ]
 
 [params]
 

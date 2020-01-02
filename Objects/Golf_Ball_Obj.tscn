@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Golf_Ball.gd" type="Script" id=1]
-[ext_resource path="res://assets/assets/graphics/arrow.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/arrow.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Arrow.gd" type="Script" id=3]
-[ext_resource path="res://default_env.tres" type="Environment" id=4]
+[ext_resource path="res://Misc/default_env.tres" type="Environment" id=4]
 [ext_resource path="res://Scripts/Golf_Camera.gd" type="Script" id=5]
 
 [sub_resource type="SphereShape" id=1]
