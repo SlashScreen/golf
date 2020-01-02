@@ -3,16 +3,16 @@ extends Node
 
 ##INIT###
 export var gameVars = {}
-export var par = 0
 func _ready():
 	gameVars.currentScore = 0
 	gameVars.scorecard = []
+	gameVars.par = 0
 	var baseScene = get_parent().get_node("level")
 	baseScene.get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"_on_in_hole")
 	baseScene.get_node("Kill_Volume").get_node("Area").connect("oob",self,"on_oob")
 ###SCORE FUNCTIONS###
 func new_hole(): #todo: add hole with json data n all that
-	par = 0
+	gameVars.par = 0
 	gameVars.scorecard.append(gameVars.currentScore)
 	gameVars.currentScore = 0
 

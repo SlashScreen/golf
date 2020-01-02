@@ -5,6 +5,7 @@ var ray_length = 1000
 var max_power = 15
 var end_dist = 7
 export var last_pos = Vector3(0,0,0)
+onready var game_vars = get_node("/root/Signal_Router").gameVars
 
 func _ready():
 	#set_as_toplevel(true)
@@ -29,7 +30,8 @@ func _input(event):
 		look_at(result.position,Vector3(0,1,0)) #set_rotation(Vector3(0,newdir.y,0))
 		set_scale(Vector3(1,1,d/end_dist))
 		if event is InputEventMouseButton and event.pressed and event.button_index == 1 and ball.STATE == "still": #if mouse button clicked
-			last_pos = ball.get_translation()
+			last_pos = ball.get_parent().get_translation()
+			game_vars.currentScore += 1
 			ball.apply_central_impulse(newdir*((d/end_dist)*max_power)) #apply impulse
 
 func _process(delta):

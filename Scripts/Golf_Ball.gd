@@ -18,10 +18,11 @@ func _process(delta):
 		STATE = "moving"
 		
 func _on_oob(): #signal
-	set_linear_velocity(Vector3(0,0,0)) #Make it stop
 	should_reset = true
 
-func _integrate_forces(state):
+func _integrate_forces(state): #Reset
 	if should_reset:
 		should_reset = false
+		set_linear_velocity(Vector3(0,0,0)) #Make it stop moving
+		set_angular_velocity(Vector3(0,0,0)) #Make it stop rotating
 		state.transform.origin = get_node("Arrow").last_pos
