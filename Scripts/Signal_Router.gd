@@ -11,7 +11,8 @@ func _ready():
 	gameVars.par = 0
 	
 	var baseScene = get_parent().get_node("level")
-	baseScene.get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"_on_in_hole")
+	#baseScene.get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"_on_in_hole")
+	baseScene.get_node("HUD").connect("gamewon",self,"_on_game_won")
 	baseScene.get_node("Kill_Volume").get_node("Area").connect("oob",self,"on_oob")
 ###SCORE FUNCTIONS###
 func new_hole(): #todo: add hole with json data n all that
@@ -27,6 +28,6 @@ func on_oob():
 	gameVars.currentScore += 1
 	print("Out Of Bounds!")
 
-func _on_in_hole(): #todo: win
+func _on_game_won(): #todo: win
 	print("In Hole!")
 	new_hole()

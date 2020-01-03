@@ -1,12 +1,10 @@
 extends Control
 
 onready var game_vars = get_node("/root/Signal_Router").gameVars
+signal gamewon
 
 func _ready():
 	get_parent().get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"_on_hole")
-
-#FUNCTIONS:
-#Event ball in hole then display won text and all that
 
 func _process(delta): #set text
 	get_node("Stroke").set_text("Stroke: "+str(game_vars.currentScore))
@@ -15,7 +13,7 @@ func _process(delta): #set text
 func _on_hole():
 	#Set text based on score vs par relationship
 	var text = ""
-	var rel = game_vars.par-game_vars.currentScore
+	var rel = game_vars.par-game_vars.currentScore #rel = relationship
 	if game_vars.currentScore == 1:
 		text = "Hole in One!"
 	#I know this is quite unsightly BUT there are no switch statements...
