@@ -13,7 +13,14 @@ func _ready():
 
 func _process(delta):
 	#TODO: make less finicky.
-	if get_linear_velocity().length() <= .01:
+	#Process:
+	#Get all the forces acting on it
+	#If the forces balance to 0 AND the length is very small
+	#THEN is still. Otherwise, it's moving
+	#Or just... is sleeping
+	
+	#TODO: Stress test this
+	if is_sleeping(): #get_linear_velocity().length() <= .01:
 		STATE = "still"
 	else:
 		STATE = "moving"
