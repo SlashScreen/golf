@@ -7,8 +7,7 @@ func _ready():
 
 #FUNCTIONS:
 #Event ball in hole then display won text and all that
-#Event hit ball then count up
 
-func _process(delta):
+func _process(delta): #set text
 	get_node("Stroke").set_text("Stroke: "+str(game_vars.currentScore))
 	get_node("Par").set_text("PAR "+ str(game_vars.par))

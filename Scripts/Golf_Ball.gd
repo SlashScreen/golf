@@ -12,6 +12,7 @@ func _ready():
 	get_parent().get_parent().get_node("Kill_Volume").get_node("Area").connect("oob",self,"_on_oob")
 
 func _process(delta):
+	#TODO: make less finicky.
 	if get_linear_velocity().length() <= .01:
 		STATE = "still"
 	else:

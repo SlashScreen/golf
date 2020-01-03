@@ -19,23 +19,25 @@ func _input(event):
 	var from = cam.project_ray_origin(mouse) #get origin
 	var to = from + cam.project_ray_normal(mouse) * ray_length #get ray end
 	var result = space_state.intersect_ray(to,from) #cast
-	#apply on click
+	#if mouse hits
 	if result.has('position'):
+		#calculate mathy things
 		var ball = get_parent() #ball
 		var d = result.position.distance_to(get_translation()) #distance between points
 		d = clamp(d,0,end_dist)
-		#Add impulse
 		result.position.y += 1
 		var newdir = ball.get_translation().direction_to(result.position)
+		#Point arrow
 		look_at(result.position,Vector3(0,1,0)) #set_rotation(Vector3(0,newdir.y,0))
 		set_scale(Vector3(1,1,d/end_dist))
+		#Hit ball
 		if event is InputEventMouseButton and event.pressed and event.button_index == 1 and ball.STATE == "still": #if mouse button clicked
-			last_pos = ball.get_parent().get_translation()
-			game_vars.currentScore += 1
+			last_pos = ball.get_parent().get_translation() #set last position
+			game_vars.currentScore += 1 #yes I'm setting the score here. Shouldn't be too big of an issue
 			ball.apply_central_impulse(newdir*((d/end_dist)*max_power)) #apply impulse
 
 func _process(delta):
-	#set_translation(get_parent().get_translation())
+	#hide and show based on ball state
 	if get_parent().STATE == "still":
 		show()
 	else:
