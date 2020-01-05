@@ -6,6 +6,8 @@ export var gameVars = {}
 onready var file = File.new()
 var levels
 
+signal move_ball(vec)
+
 func _ready():
 	file.open("res://Levels/levels.json",File.READ)
 	var levels = JSON.parse(file.get_as_text()).get_result()
@@ -23,10 +25,13 @@ func _ready():
 	baseScene.get_node("Kill_Volume").get_node("Area").connect("oob",self,"on_oob")
 ###SCORE FUNCTIONS###
 func new_hole(): #todo: add hole with json data n all that
-	gameVars.par = 0 #todo: read json and get par
+	print("New Hole")
+	gameVars.par = levels[gameVars.map][gameVars.hole].par
 	gameVars.scorecard.append(gameVars.currentScore) #add to card
 	gameVars.currentScore = 0 #reset stroke
 	gameVars.hole += 1
+	var o = (levels[gameVars.map][gameVars.hole].origin)
+	emit_signal("move_ball",Vector3(o.x,o.y,o.z))
 
 func hard_reset():
 	gameVars.scorecard = []
@@ -35,7 +40,7 @@ func hard_reset():
 ###SIGNAL PROCESSING###
 func on_oob():
 	gameVars.currentScore += 1
-	print("Out Of Bounds!")
+	print("Out Of Bounds!!!")
 
 func _on_game_won(): #todo: win
 	print("In Hole!")

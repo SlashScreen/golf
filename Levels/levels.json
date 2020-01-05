@@ -5,12 +5,17 @@
 			"description":"A boring test world. Non-developers shouldn't be able to see this... unless you're a *hacker*!",
 			"path":"res://Levels/test_level.tscn",
 			"thumb":"res://assets/graphics/icon.png",
-			"holes":{
-				"0":{
-					"par":3,
-					"origin":{"x":0,"y":0,"z":0}
-				}
+		},
+		"holes":{
+			"0":{
+				"par":3,
+				"origin":{"x":0,"y":0,"z":0}
+			},
+			"0":{
+				"par":3,
+				"origin":{"x":0,"y":0,"z":0}
 			}
 		}
+		
 	}
 }

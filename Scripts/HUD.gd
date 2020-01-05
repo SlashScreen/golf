@@ -32,3 +32,4 @@ func _on_hole():
 	elif rel >= 2:
 		text = "Eagle!"
 	get_node("Victory").set_text(text)
+	emit_signal("gamewon")
