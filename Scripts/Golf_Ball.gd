@@ -9,7 +9,7 @@ var nextLocation = Vector3(0,0,0)
 
 func _ready():
 	#Load textures and things later
-	get_tree().get_root().get_node("Signal_Router").connect("move_ball",self,"on_move_ball")
+	get_tree().get_root().get_node("Signal_Router").connect("move_ball",self,"_on_move_ball")
 	get_parent().get_parent().get_node("Kill_Volume").get_node("Area").connect("oob",self,"_on_oob")
 
 func _process(delta):

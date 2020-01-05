@@ -10,7 +10,8 @@ signal move_ball(vec)
 
 func _ready():
 	file.open("res://Levels/levels.json",File.READ)
-	var levels = JSON.parse(file.get_as_text()).get_result()
+	levels = JSON.parse(file.get_as_text()).get_result()
+	file.close()
 	#set default score stuff. This shoudln't be a problem later since all holes will be in 1 scene
 	gameVars.currentScore = 0
 	gameVars.scorecard = []
@@ -26,11 +27,12 @@ func _ready():
 ###SCORE FUNCTIONS###
 func new_hole(): #todo: add hole with json data n all that
 	print("New Hole")
-	gameVars.par = levels[gameVars.map][gameVars.hole].par
+	#PROBLEM- Levels is empty. Why?
+	gameVars.par = levels[gameVars.map].holes[str(gameVars.hole)].par
 	gameVars.scorecard.append(gameVars.currentScore) #add to card
 	gameVars.currentScore = 0 #reset stroke
 	gameVars.hole += 1
-	var o = (levels[gameVars.map][gameVars.hole].origin)
+	var o = (levels[gameVars.map].holes[str(gameVars.hole)].origin)
 	emit_signal("move_ball",Vector3(o.x,o.y,o.z))
 
 func hard_reset():
