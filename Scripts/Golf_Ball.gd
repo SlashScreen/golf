@@ -6,11 +6,13 @@ export var STATE = "still"
 #moving = moving
 var should_move = false
 var nextLocation = Vector3(0,0,0)
+onready var game_vars = get_node("/root/Signal_Router").gameVars
 
 func _ready():
 	#Load textures and things later
 	get_tree().get_root().get_node("Signal_Router").connect("move_ball",self,"_on_move_ball")
-	get_parent().get_parent().get_node("Kill_Volume").get_node("Area").connect("oob",self,"_on_oob")
+	get_tree().get_root().get_node("Signal_Router").connect("on_oob",self,"_on_oob")
+	
 
 func _process(delta):
 	#TODO: make less finicky.

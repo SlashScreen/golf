@@ -5,8 +5,11 @@ extends Node
 export var gameVars = {}
 onready var file = File.new()
 var levels
+onready var baseScene = get_parent().get_node("level")
 
 signal move_ball(vec)
+signal on_oob
+signal on_won
 
 func _ready():
 	file.open("res://Levels/levels.json",File.READ)
@@ -20,10 +23,10 @@ func _ready():
 	gameVars.map = "test"
 	print(levels[gameVars.map].info.name)
 	
-	var baseScene = get_parent().get_node("level")
 	#baseScene.get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"_on_in_hole")
-	baseScene.get_node("HUD").connect("gamewon",self,"_on_game_won")
-	baseScene.get_node("Kill_Volume").get_node("Area").connect("oob",self,"on_oob")
+	#baseScene.get_node("HUD").connect("gamewon",self,"_on_game_won")
+	baseScene.get_node(str(gameVars.hole)).get_node("Kill_Volume").get_node("Area").connect("oob",self,"on_oob")
+	baseScene.get_node(str(gameVars.hole)).get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"on_game_won")
 ###SCORE FUNCTIONS###
 func new_hole(): #todo: add hole with json data n all that
 	print("New Hole")
@@ -32,6 +35,8 @@ func new_hole(): #todo: add hole with json data n all that
 	gameVars.scorecard.append(gameVars.currentScore) #add to card
 	gameVars.currentScore = 0 #reset stroke
 	gameVars.hole += 1
+	baseScene.get_node(str(gameVars.hole)).get_node("Kill_Volume").get_node("Area").connect("oob",self,"on_oob")
+	baseScene.get_node(str(gameVars.hole)).get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"on_game_won")
 	var o = (levels[gameVars.map].holes[str(gameVars.hole)].origin)
 	emit_signal("move_ball",Vector3(o.x,o.y,o.z))
 
@@ -42,8 +47,10 @@ func hard_reset():
 ###SIGNAL PROCESSING###
 func on_oob():
 	gameVars.currentScore += 1
+	emit_signal("on_oob")
 	print("Out Of Bounds!!!")
 
-func _on_game_won(): #todo: win
+func on_game_won(): #todo: win
 	print("In Hole!")
+	emit_signal("on_won")
 	new_hole()
