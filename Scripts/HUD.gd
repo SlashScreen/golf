@@ -1,7 +1,6 @@
 extends Control
 
 onready var game_vars = get_node("/root/Signal_Router").gameVars
-signal gamewon
 
 func _ready():
 	get_tree().get_root().get_node("Signal_Router").connect("on_won",self,"_on_hole")
@@ -32,4 +31,3 @@ func _on_hole():
 	elif rel >= 2:
 		text = "Eagle!"
 	get_node("Victory").set_text(text)
-	#emit_signal("gamewon")

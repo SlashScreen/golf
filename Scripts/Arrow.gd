@@ -8,7 +8,6 @@ export var last_pos = Vector3(0,0,0)
 onready var game_vars = get_node("/root/Signal_Router").gameVars
 
 func _ready():
-	#set_as_toplevel(true)
 	pass
 
 func _input(event):

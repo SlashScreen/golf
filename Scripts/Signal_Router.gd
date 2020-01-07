@@ -15,7 +15,7 @@ func _ready():
 	file.open("res://Levels/levels.json",File.READ)
 	levels = JSON.parse(file.get_as_text()).get_result()
 	file.close()
-	#set default score stuff. This shoudln't be a problem later since all holes will be in 1 scene
+	
 	gameVars.currentScore = 0
 	gameVars.scorecard = []
 	gameVars.par = 0
@@ -23,14 +23,11 @@ func _ready():
 	gameVars.map = "test"
 	print(levels[gameVars.map].info.name)
 	
-	#baseScene.get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"_on_in_hole")
-	#baseScene.get_node("HUD").connect("gamewon",self,"_on_game_won")
 	baseScene.get_node(str(gameVars.hole)).get_node("Kill_Volume").get_node("Area").connect("oob",self,"on_oob")
 	baseScene.get_node(str(gameVars.hole)).get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"on_game_won")
 ###SCORE FUNCTIONS###
-func new_hole(): #todo: add hole with json data n all that
+func new_hole():
 	print("New Hole")
-	#PROBLEM- Levels is empty. Why?
 	gameVars.par = levels[gameVars.map].holes[str(gameVars.hole)].par
 	gameVars.scorecard.append(gameVars.currentScore) #add to card
 	gameVars.currentScore = 0 #reset stroke
@@ -44,6 +41,7 @@ func hard_reset():
 	gameVars.scorecard = []
 	gameVars.currentScore = 0
 	gameVars.hole = 0
+	
 ###SIGNAL PROCESSING###
 func on_oob():
 	gameVars.currentScore += 1

@@ -23,6 +23,11 @@ config/icon="res://assets/graphics/icon.png"
 
 Signal_Router="*res://Scripts/Signal_Router.gd"
 
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
+
 [rendering]
 
 environment/default_environment="res://Misc/default_env.tres"
