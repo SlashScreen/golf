@@ -36,6 +36,10 @@ frame_2/delay_sec = 0.0
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 albedo_texture = SubResource( 4 )
 
 [sub_resource type="QuadMesh" id=3]

@@ -4,6 +4,7 @@ onready var game_vars = get_node("/root/Signal_Router").gameVars
 
 func _ready():
 	get_tree().get_root().get_node("Signal_Router").connect("on_won",self,"_on_hole")
+	get_tree().get_root().get_node("Signal_Router").connect("clearHud",self,"_clear")
 
 func _process(delta): #set text
 	get_node("Stroke").set_text("Stroke: "+str(game_vars.currentScore))
@@ -31,3 +32,6 @@ func _on_hole():
 	elif rel >= 2:
 		text = "Eagle!"
 	get_node("Victory").set_text(text)
+
+func _clear():
+	get_node("Victory").set_text("")

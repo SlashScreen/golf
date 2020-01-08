@@ -6,10 +6,12 @@ export var gameVars = {}
 onready var file = File.new()
 var levels
 onready var baseScene = get_parent().get_node("level")
+onready var t = get_node("/root/DelayManager")
 
 signal move_ball(vec)
 signal on_oob
 signal on_won
+signal clearHud
 
 func _ready():
 	file.open("res://Levels/levels.json",File.READ)
@@ -35,6 +37,7 @@ func new_hole():
 	baseScene.get_node(str(gameVars.hole)).get_node("Kill_Volume").get_node("Area").connect("oob",self,"on_oob")
 	baseScene.get_node(str(gameVars.hole)).get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"on_game_won")
 	var o = (levels[gameVars.map].holes[str(gameVars.hole)].origin)
+	emit_signal("clearHud")
 	emit_signal("move_ball",Vector3(o.x,o.y,o.z))
 
 func hard_reset():
@@ -51,4 +54,7 @@ func on_oob():
 func on_game_won(): #todo: win
 	print("In Hole!")
 	emit_signal("on_won")
+	t.set_wait_time(2)
+	t.start()
+	yield(t,"timeout")
 	new_hole()
