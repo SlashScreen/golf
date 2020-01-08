@@ -54,5 +54,6 @@ amount = 100
 one_shot = true
 speed_scale = 3.71
 explosiveness = 1.0
+visibility_aabb = AABB( -9.15734, -6.30471, -7.67285, 18.3147, 12.6094, 15.3457 )
 process_material = SubResource( 1 )
 draw_pass_1 = SubResource( 3 )

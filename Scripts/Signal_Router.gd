@@ -51,7 +51,7 @@ func on_oob():
 	emit_signal("on_oob")
 	print("Out Of Bounds!!!")
 
-func on_game_won(): #todo: win
+func on_game_won():
 	print("In Hole!")
 	emit_signal("on_won")
 	t.set_wait_time(2)
