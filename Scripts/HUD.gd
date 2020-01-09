@@ -5,10 +5,12 @@ onready var game_vars = get_node("/root/Signal_Router").gameVars
 func _ready():
 	get_tree().get_root().get_node("Signal_Router").connect("on_won",self,"_on_hole")
 	get_tree().get_root().get_node("Signal_Router").connect("clearHud",self,"_clear")
+	_clear()
 
 func _process(delta): #set text
 	get_node("Stroke").set_text("Stroke: "+str(game_vars.currentScore))
-	get_node("Par").set_text("PAR "+ str(game_vars.par))
+	get_node("Par").set_text("Par "+ str(game_vars.par))
+	get_node("Hole").set_text("Hole "+ str(game_vars.hole))
 
 func _on_hole():
 	#Set text based on score vs par relationship
