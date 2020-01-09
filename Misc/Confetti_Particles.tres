@@ -1,0 +1,21 @@
+[gd_resource type="ParticlesMaterial" format=2]
+
+[resource]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_rotate_y = true
+flag_disable_z = true
+spread = 164.08
+initial_velocity = 525.07
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 27.69
+angle = 360.0
+angle_random = 1.0
+scale = 0.1
+scale_random = 1.0
+hue_variation = 1.0
+hue_variation_random = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
