@@ -28,6 +28,7 @@ func _process(delta):
 			#Point arrow and set size
 			look_at(result.position,Vector3(0,1,0)) #set_rotation(Vector3(0,newdir.y,0))
 			set_scale(Vector3(1,1,d/end_dist))
+			self.material_override.set_shader_param("Power",(d/end_dist))
 			#Hit ball
 			if Input.is_mouse_button_pressed(BUTTON_LEFT): #if mouse button clicked
 				last_pos = ball.get_parent().get_translation() #set last position

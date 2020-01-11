@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Golf_Ball.gd" type="Script" id=1]
-[ext_resource path="res://assets/graphics/arrow.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Arrow.gd" type="Script" id=3]
-[ext_resource path="res://Misc/default_env.tres" type="Environment" id=4]
-[ext_resource path="res://Scripts/Golf_Camera.gd" type="Script" id=5]
+[ext_resource path="res://Misc/Shaders/Arrow_Shader_Material.tres" type="Material" id=2]
+[ext_resource path="res://assets/graphics/arrow.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Arrow.gd" type="Script" id=4]
+[ext_resource path="res://Misc/default_env.tres" type="Environment" id=5]
+[ext_resource path="res://Scripts/Golf_Camera.gd" type="Script" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -29,13 +30,16 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Arrow" type="Sprite3D" parent="Ball"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.192052, 0 )
+material_override = ExtResource( 2 )
+cast_shadow = 0
 axis = 1
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="camfollow" type="Spatial" parent="Ball"]
 
 [node name="Camera" type="Camera" parent="Ball/camfollow"]
 transform = Transform( 0.999111, 0, 0, 0, 0.999111, 0, 0, 0, 0.999111, 0, 1.95166, 3.15376 )
-environment = ExtResource( 4 )
-script = ExtResource( 5 )
+environment = ExtResource( 5 )
+script = ExtResource( 6 )
