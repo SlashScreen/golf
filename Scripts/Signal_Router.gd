@@ -54,7 +54,7 @@ func on_oob():
 func on_game_won():
 	print("In Hole!")
 	emit_signal("on_won")
-	t.set_wait_time(2)
+	t.set_wait_time(5) #const here is how long to wait before new hole
 	t.start()
 	yield(t,"timeout")
 	new_hole()
