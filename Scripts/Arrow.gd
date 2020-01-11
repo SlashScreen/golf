@@ -32,7 +32,7 @@ func _process(delta):
 			#Hit ball
 			if Input.is_mouse_button_pressed(BUTTON_LEFT): #if mouse button clicked
 				last_pos = ball.get_parent().get_translation() #set last position
-				game_vars.currentScore += 1 #yes I'm setting the score here. Shouldn't be too big of an issue
+				game_vars.players[game_vars.currentPlayer].stroke += 1 #yes I'm setting the score here. Shouldn't be too big of an issue
 				ball.apply_central_impulse(newdir*((d/end_dist)*max_power)) #apply impulse
 	else:
 		hide()

@@ -68,3 +68,9 @@ randomness = 0.39
 process_material = ExtResource( 3 )
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
+
+[node name="Scorecard" type="Panel" parent="."]
+visible = false
+margin_right = 215.0
+margin_bottom = 83.0
+theme = ExtResource( 2 )

@@ -8,15 +8,17 @@ func _ready():
 	_clear()
 
 func _process(delta): #set text
-	get_node("Stroke").set_text("Stroke: "+str(game_vars.currentScore))
-	get_node("Par").set_text("Par "+ str(game_vars.par))
-	get_node("Hole").set_text("Hole "+ str(game_vars.hole))
+	var cplayer = game_vars.players[game_vars.currentPlayer]
+	get_node("Stroke").set_text("Stroke: "+str(cplayer.stroke))
+	get_node("Par").set_text("Par "+ str(cplayer.par))
+	get_node("Hole").set_text("Hole "+ str(cplayer.hole))
 
 func _on_hole():
 	#Set text based on score vs par relationship
 	var text = ""
-	var rel = game_vars.par-game_vars.currentScore #rel = relationship
-	if game_vars.currentScore == 1:
+	var cplayer = game_vars.players[game_vars.currentPlayer]
+	var rel = cplayer.par - cplayer.stroke #rel = relationship
+	if cplayer.stroke == 1:
 		text = "Hole in One!"
 	#I know this is quite unsightly BUT there are no switch statements...
 	elif rel < -3:

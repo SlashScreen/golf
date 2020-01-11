@@ -30,7 +30,6 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Arrow" type="Sprite3D" parent="Ball"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.192052, 0 )
 material_override = ExtResource( 2 )
 cast_shadow = 0
 axis = 1
