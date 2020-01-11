@@ -1,0 +1,47 @@
+[gd_resource type="VisualShader" load_steps=3 format=2]
+
+[sub_resource type="VisualShaderNodeColorUniform" id=2]
+uniform_name = "color"
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=3]
+constant = 0.5
+
+[resource]
+code = "shader_type spatial;
+uniform vec4 color : hint_color;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorUniform:2
+	vec3 n_out2p0;
+	float n_out2p1;
+	n_out2p0 = color.rgb;
+	n_out2p1 = color.a;
+
+// Scalar:3
+	float n_out3p0;
+	n_out3p0 = 0.500000;
+
+// Output:0
+	ALBEDO = n_out2p0;
+	ALPHA = n_out3p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -151.045, 118.723 )
+nodes/fragment/2/node = SubResource( 2 )
+nodes/fragment/2/position = Vector2( -80, 180 )
+nodes/fragment/3/node = SubResource( 3 )
+nodes/fragment/3/position = Vector2( -80, 280 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 3, 0, 0, 1 )

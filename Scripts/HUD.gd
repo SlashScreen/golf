@@ -28,7 +28,7 @@ func _on_hole():
 	elif rel == -2:
 		text = "Double Bogey!"
 	elif rel == -1:
-		text == "Bogey!"
+		text = "Bogey!"
 	elif rel == 0:
 		text = "Par!"
 	elif rel == 1:
