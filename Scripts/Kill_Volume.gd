@@ -1,5 +1,5 @@
 extends Area
-#Note: Kill volume must always be under root
+
 signal oob
 
 func _ready():

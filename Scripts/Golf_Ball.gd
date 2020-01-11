@@ -26,7 +26,7 @@ func _process(delta):
 		STATE = "still"
 	else:
 		STATE = "moving"
-		
+
 func _on_oob(): #signal
 	should_move = true
 	nextLocation = get_node("Arrow").last_pos
