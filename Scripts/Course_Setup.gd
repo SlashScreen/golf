@@ -1,4 +1,5 @@
 extends MeshInstance
 #Sets up course collision mesh.
-func _on_Course_meshready():
+
+func _ready():
 	create_trimesh_collision()

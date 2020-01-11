@@ -16,6 +16,7 @@ signal on_won
 signal clearHud
 signal ghost(color,pos)
 signal remove_ghost
+signal switch(p)
 
 func _ready():
 	file.open("res://Levels/levels.json",File.READ)
@@ -31,8 +32,10 @@ func new_hole():
 	gameVars.players[gameVars.currentPlayer].hole += 1
 	gameVars.players[gameVars.currentPlayer].location = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
 	reconnect()
+	connect("switch",self,"switch_players")
 	var o = (levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin)
 	emit_signal("clearHud")
+	emit_signal("switch",0)
 	emit_signal("move_ball",Vector3(o.x,o.y,o.z))
 
 func hard_reset():
@@ -71,7 +74,7 @@ func on_oob():
 func on_game_won():
 	print("In Hole!")
 	emit_signal("on_won")
-	t.set_wait_time(5) #const here is how long to wait before new hole
+	t.set_wait_time(2) #const here is how long to wait before new hole
 	t.start()
 	yield(t,"timeout")
 	new_hole()

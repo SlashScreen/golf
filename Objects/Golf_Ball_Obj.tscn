@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Golf_Ball.gd" type="Script" id=1]
 [ext_resource path="res://Misc/Shaders/Arrow_Shader_Material.tres" type="Material" id=2]
@@ -14,6 +14,46 @@ radius = 0.2
 
 [sub_resource type="SphereMesh" id=3]
 
+[sub_resource type="VisualShaderNodeColorUniform" id=9]
+uniform_name = "Color"
+
+[sub_resource type="VisualShader" id=7]
+code = "shader_type spatial;
+uniform vec4 Color : hint_color;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorUniform:4
+	vec3 n_out4p0;
+	float n_out4p1;
+	n_out4p0 = Color.rgb;
+	n_out4p1 = Color.a;
+
+// Output:0
+	ALBEDO = n_out4p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -132.289, 130.5 )
+nodes/fragment/4/node = SubResource( 9 )
+nodes/fragment/4/position = Vector2( 140, 120 )
+nodes/fragment/connections = PoolIntArray( 4, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/Color = Color( 1, 1, 1, 1 )
+
 [node name="Golf_Ball_Obj" type="Spatial"]
 transform = Transform( 1.00089, 0, 0, 0, 1.00089, 0, 0, 0, 1.00089, 0, 0, 0 )
 
@@ -27,7 +67,7 @@ shape = SubResource( 2 )
 [node name="Ballmesh" type="MeshInstance" parent="Ball"]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
 mesh = SubResource( 3 )
-material/0 = null
+material/0 = SubResource( 8 )
 
 [node name="Arrow" type="Sprite3D" parent="Ball"]
 material_override = ExtResource( 2 )
