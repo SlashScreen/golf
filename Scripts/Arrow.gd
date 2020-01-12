@@ -3,7 +3,7 @@ extends Sprite3D
 #Constants
 var ray_length = 1000
 var max_power = 15
-var end_dist = 7
+var end_dist = 6
 export var last_pos = Vector3(0,0,0)
 onready var game_vars = get_node("/root/Signal_Router").gameVars
 
@@ -34,5 +34,6 @@ func _process(delta):
 				last_pos = ball.get_parent().get_translation() #set last position
 				game_vars.players[game_vars.currentPlayer].stroke += 1 #yes I'm setting the score here. Shouldn't be too big of an issue
 				ball.apply_central_impulse(newdir*((d/end_dist)*max_power)) #apply impulse
+				$HitSFX.play_once()
 	else:
 		hide()

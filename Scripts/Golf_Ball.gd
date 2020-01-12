@@ -1,12 +1,11 @@
 extends RigidBody
 #Golf_Ball.gd
 export var STATE = "still"
-#States:
-#still = ball not moving
-#moving = moving
 var should_move = false
 var nextLocation = Vector3(0,0,0)
+var lastState
 onready var game_vars = get_node("/root/Signal_Router").gameVars
+signal newTurn
 
 func _ready():
 	#Load textures and things later
@@ -17,17 +16,12 @@ func _ready():
 
 func _process(delta):
 	#TODO: make less finicky.
-	#Process:
-	#Get all the forces acting on it
-	#If the forces balance to 0 AND the length is very small
-	#THEN is still. Otherwise, it's moving
-	#Or just... is sleeping
-	
-	#TODO: Stress test this
 	if is_sleeping(): #get_linear_velocity().length() <= .01:
 		STATE = "still"
 	else:
 		STATE = "moving"
+	testStateChange()
+	lastState = STATE
 
 func _on_oob(): #signal
 	should_move = true
@@ -46,3 +40,7 @@ func _integrate_forces(state): #Reset
 
 func switch(p):
 	get_node("Ballmesh").get_surface_material(0).set_shader_param("Color",game_vars.players[p].color)
+
+func testStateChange():
+	if lastState == "moving" and STATE == "still":
+		emit_signal("newTurn")
