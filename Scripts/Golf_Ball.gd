@@ -4,6 +4,7 @@ export var STATE = "still"
 var should_move = false
 var nextLocation = Vector3(0,0,0)
 var lastState
+var holeSetup = false
 onready var game_vars = get_node("/root/Signal_Router").gameVars
 signal newTurn
 
@@ -43,4 +44,5 @@ func switch(p):
 
 func testStateChange():
 	if lastState == "moving" and STATE == "still":
-		emit_signal("newTurn")
+		#emit_signal("newTurn")
+		pass

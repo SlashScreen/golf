@@ -6,14 +6,17 @@
 [ext_resource path="res://assets/models/maps/testcourse2.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://Objects/Kill_Volume.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Golf_Hole_Volume.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/models/maps/testcourse.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://assets/models/maps/testcourse3.obj" type="ArrayMesh" id=7]
 
 [node name="level" type="Spatial"]
 
 [node name="Golf_Ball_Obj" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37503e-08, 0, -1.00089, 0, 1.00089, 0, 1.00089, 0, -4.37503e-08, 1.48889, -4.76837e-07, 0.425831 )
+transform = Transform( -4.37503e-08, 0, -1.00089, 0, 1.00089, 0, 1.00089, 0, -4.37503e-08, 1.17768, -1.05086, 0.425831 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="Marker" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5147, -4.89376, 31.3597 )
 
 [node name="0" type="Spatial" parent="."]
 
@@ -29,15 +32,21 @@ transform = Transform( 33.8851, 0, 0, 0, 1, 0, 0, 0, 33.8851, 0, -9.94058, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2939, -4.22084, 7.32779 )
 
 [node name="1" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.2787, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4246, 0, 29.3974 )
 
 [node name="Course" parent="1" instance=ExtResource( 3 )]
-transform = Transform( 1.97147, 0, 0, 0, 1.97147, 0, 0, 0, 1.97147, 2.36525, -1.60759, 0 )
+transform = Transform( -5.14554, 0, -4.49837e-07, 0, 5.14554, 0, 4.49837e-07, 0, -5.14554, 25.2176, -5.60759, 3 )
 mesh = ExtResource( 7 )
 material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
 
 [node name="Kill_Volume" parent="1" instance=ExtResource( 5 )]
 transform = Transform( 33.8851, 0, 0, 0, 1, 0, 0, 0, 33.8851, 0, -9.94058, 0 )
 
 [node name="Golf_Hole_Volume" parent="1" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3125, -5.47135, 3.35808 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4854, -5.55014, 3.04769 )
