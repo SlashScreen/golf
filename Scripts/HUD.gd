@@ -20,21 +20,28 @@ func _on_hole():
 	var rel = cplayer.par - cplayer.stroke #rel = relationship
 	if cplayer.stroke == 1:
 		text = "Hole in One!"
-	#I know this is quite unsightly BUT there are no switch statements...
-	elif rel < -3:
-		text = "Too Bad!"
-	elif rel == -3:
-		text = "Triple Bogey!"
-	elif rel == -2:
-		text = "Double Bogey!"
-	elif rel == -1:
-		text = "Bogey!"
-	elif rel == 0:
-		text = "Par!"
-	elif rel == 1:
-		text = "Birdie!"
-	elif rel >= 2:
-		text = "Eagle!"
+	else:
+		match int(rel):
+			-4:
+				text = "Too Bad!"
+			-3:
+				text = "Triple Bogey!"
+			-2:
+				text = "Double Bogey!"
+			-1:
+				text = "Bogey!"
+			0:
+				text = "Par!"
+			1:
+				text = "Birdie!"
+			2:
+				text = "Eagle!"
+			3:
+				text = "Albatross!"
+			4:
+				text = "Condor!"
+			_:
+				text = "Finished!"
 	get_node("Victory").set_text(text)
 
 func _clear():

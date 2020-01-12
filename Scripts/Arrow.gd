@@ -16,7 +16,7 @@ func _process(delta):
 		var mouse = get_viewport().get_mouse_position() #event position
 		var from = cam.project_ray_origin(mouse) #get origin
 		var to = from + cam.project_ray_normal(mouse) * ray_length #get ray end
-		var result = space_state.intersect_ray(to,from) #cast
+		var result = space_state.intersect_ray(from,to) #cast
 		#if mouse something
 		if result.has('position'):
 			#calculate mathy things
