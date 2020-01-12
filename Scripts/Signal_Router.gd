@@ -80,17 +80,18 @@ func on_game_won():
 	new_hole()
 
 func switch_players(player):
-	var ghost = ghostasset.instance()
-	disconnect_signal()
-	#Ghost
-	emit_signal("remove_ghost")
-	get_parent().get_node("level").add_child(ghost)
-	emit_signal("ghost",gameVars.players[gameVars.currentPlayer].color,gameVars.players[gameVars.currentPlayer].location)
-	#Variable switch
-	gameVars.currentPlayer = player
-	#Move Ball
-	emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
-	reconnect()
+	if howManyPlayers > 1:
+		var ghost = ghostasset.instance()
+		disconnect_signal()
+		#Ghost
+		emit_signal("remove_ghost")
+		get_parent().get_node("level").add_child(ghost)
+		emit_signal("ghost",gameVars.players[gameVars.currentPlayer].color,gameVars.players[gameVars.currentPlayer].location)
+		#Variable switch
+		gameVars.currentPlayer = player
+		#Move Ball
+		emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
+		reconnect()
 
 func on_new_turn():
 	switch_players(incrementPlayerCount())

@@ -3,7 +3,7 @@ extends Sprite3D
 #Constants
 var ray_length = 1000
 var max_power = 15
-var end_dist = 6
+var end_dist = 2
 export var last_pos = Vector3(0,0,0)
 onready var game_vars = get_node("/root/Signal_Router").gameVars
 
@@ -27,7 +27,7 @@ func _process(delta):
 			var newdir = ball.get_global_transform().origin.direction_to(result.position)
 			#Point arrow and set size
 			look_at(result.position,Vector3(0,1,0)) #set_rotation(Vector3(0,newdir.y,0))
-			set_scale(Vector3(1,1,d/end_dist))
+			set_scale(Vector3(.5,1,d/end_dist))
 			self.material_override.set_shader_param("Power",(d/end_dist))
 			#Hit ball
 			if Input.is_mouse_button_pressed(BUTTON_LEFT): #if mouse button clicked

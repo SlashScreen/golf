@@ -12,7 +12,7 @@
 [sub_resource type="PhysicsMaterial" id=1]
 
 [sub_resource type="SphereShape" id=2]
-radius = 0.2
+radius = 0.1
 
 [sub_resource type="SphereMesh" id=3]
 
@@ -67,11 +67,12 @@ script = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Ballmesh" type="MeshInstance" parent="Ball"]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = SubResource( 3 )
 material/0 = SubResource( 8 )
 
 [node name="Arrow" type="Sprite3D" parent="Ball"]
+transform = Transform( 0.500497, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 material_override = ExtResource( 2 )
 cast_shadow = 0
 axis = 1
