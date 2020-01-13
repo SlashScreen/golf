@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+//uniforms
+uniform float wave_height;
+uniform float freq;
+//vars
+
+//vertex script
+void vertex(){
+	float d = 0.0-VERTEX.z;
+	VERTEX.y += cos(2.0+TIME*freq)*wave_height*d;
+}
+//fragment script
+void fragment() {
+	ALBEDO = COLOR.rgb;
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/wave_height = 0.12
+shader_param/freq = 0.81

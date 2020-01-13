@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Misc/Shaders/Boat_Shader_Material.tres" type="Material" id=1]
+
+[node name="Boat" type="MeshInstance"]
+transform = Transform( 0.999324, 0, -0.0367528, 0, 1, 0, 0.0367528, 0, 0.999324, 0, 0, 0 )
+material_override = ExtResource( 1 )
