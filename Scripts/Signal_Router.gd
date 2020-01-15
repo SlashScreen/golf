@@ -43,9 +43,9 @@ func hard_reset():
 	gameVars.map = "test"
 	gameVars.currentPlayer = 0
 	gameVars.players = {}
-	var ghost = load("res://Objects/Ghost_Ball.tscn").instance()
 	for i in range(howManyPlayers):
 		var p = {}
+		var ghost = load("res://Objects/Ghost_Ball.tscn").instance()
 		p.color = Color(50*i,50*i,50*i)
 		p.scorecard = []
 		p.stroke = 0

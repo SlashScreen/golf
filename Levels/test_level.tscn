@@ -47,7 +47,7 @@ material/18 = null
 transform = Transform( 33.8851, 0, 0, 0, 1, 0, 0, 0, 33.8851, 0, -9.94058, 0 )
 
 [node name="Golf_Hole_Volume" parent="0" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2939, -4.22084, 7.32779 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26649, -1.28893, 5.29682 )
 
 [node name="1" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4246, 0, 29.3974 )
