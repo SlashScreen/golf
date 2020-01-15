@@ -1,12 +1,14 @@
 extends MeshInstance
 
-func _ready():
-	get_tree().get_root().get_node("Signal_Router").connect("ghost",self,"_on_ghost_ball")
-	get_tree().get_root().get_node("Signal_Router").connect("remove_ghost",self,"_on_remove")
+export var player = 0
+export var color = Vector3()
+export var show = false
+onready var game_vars = get_node("/root/Signal_Router").gameVars
 
-func _on_ghost_ball(color,pos): #Sets shader color
-	get_surface_material(0).set_shader_param("Color",color)
-	set_translation(Vector3(pos.x,pos.y,pos.z))
-
-func _on_remove(): #Removes ball
-	queue_free()
+func _physics_process(delta):
+	if !show and game_vars.currentPlayer == player:
+		hide()
+		#ah, yes. one of the single most convoluted pieces of code I've ever written.
+		get_global_transform().origin = get_parent().get_parent().get_node("Golf_Ball_Obj").get_node("Ball").get_global_transform().origin
+	if show:
+		show()

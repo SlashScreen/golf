@@ -1,0 +1,29 @@
+# Made using Asset Forge (1.3)
+
+:models
+#Boats/watercraftPack_004[(0, 0, 1);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);watercraftPack_004_0;Dark_metal+Grey_metal_1+Red_metal+Glass]
+Golf/end_hole[(1, 1.1, -2.3);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);end_hole_1;golfBorder+golfGreen+black]
+Golf/straight_bump[(1, 1.1, -1.3);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);straight_bump_3;golfBorder+golfGreen]
+Golf/straight_bump[(1, 1.1, -0.3);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);straight_bump_4;golfBorder+golfGreen]
+Golf/bend[(1, 1.1, 0.7);(0.0, 90.0, 0.0);(1.0, 1.0, 1.0);bend_5;golfBorder+golfGreen]
+Golf/bend[(0, 1.1, 0.7);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);bend_6;golfBorder+golfGreen]
+Golf/straight_narrow_slope[(0, 1.1, -0.3);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);straight_narrow_slope_7;golfBorder+golfGreen]
+Golf/straight[(0, 1.1, -1.3);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);straight_8;golfBorder+golfGreen]
+Golf/bend[(0, 1.1, -2.3);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);bend_9;golfBorder+golfGreen]
+Golf/bend[(-1, 1.1, -2.3);(0.0, 270.0, 0.0);(1.0, 1.0, 1.0);bend_10;golfBorder+golfGreen]
+Golf/start_closed[(-1, 1.1, 0.7);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);start_closed_11;golfBorder+golfGreen]
+Golf/straight_gap[(-1, 1.1, -1.3);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);straight_gap_12;golfBorder+golfGreen]
+Golf/straight[(-1, 1.1, -0.3);(0.0, 180.0, 0.0);(1.0, 1.0, 1.0);straight_13;golfBorder+golfGreen]
+
+:materials
+Dark_metal[RGBA(0.267, 0.267, 0.267, 1.000);]
+Grey_metal_1[RGBA(0.769, 0.769, 0.769, 1.000);]
+Red_metal[RGBA(0.910, 0.333, 0.325, 1.000);]
+Glass[RGBA(0.776, 0.902, 0.949, 1.000);]
+golfBorder[RGBA(1.000, 0.373, 0.204, 1.000);]
+golfGreen[RGBA(0.192, 0.949, 0.686, 1.000);]
+black[RGBA(0.267, 0.267, 0.267, 1.000);]
+
+:textures
+
+:extra

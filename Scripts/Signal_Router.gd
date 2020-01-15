@@ -3,7 +3,7 @@ extends Node
 
 ##INIT###
 export var gameVars = {}
-export var howManyPlayers = 1
+export var howManyPlayers = 2
 onready var file = File.new()
 var levels
 onready var baseScene = get_parent().get_node("level")
@@ -43,6 +43,7 @@ func hard_reset():
 	gameVars.map = "test"
 	gameVars.currentPlayer = 0
 	gameVars.players = {}
+	var ghost = load("res://Objects/Ghost_Ball.tscn").instance()
 	for i in range(howManyPlayers):
 		var p = {}
 		p.color = Color(50*i,50*i,50*i)
@@ -50,6 +51,11 @@ func hard_reset():
 		p.stroke = 0
 		p.hole = 0
 		p.par = levels[gameVars.map].holes[str(p.hole)].par
+		ghost.show = false
+		ghost.color = p.color
+		ghost.name = str(i)
+		get_parent().get_node("level").get_node("Ghost_Balls").add_child(ghost)
+		p.ghost = get_parent().get_node("level").get_node("Ghost_Balls").get_node(str(i))
 		var o = (levels[gameVars.map].holes[str(p.hole)].origin)
 		p.location = o
 		gameVars.players[i] = p
@@ -81,15 +87,14 @@ func on_game_won():
 
 func switch_players(player):
 	if howManyPlayers > 1:
-		var ghost = ghostasset.instance()
+		
 		disconnect_signal()
 		#Ghost
-		emit_signal("remove_ghost")
-		get_parent().get_node("level").add_child(ghost)
-		emit_signal("ghost",gameVars.players[gameVars.currentPlayer].color,gameVars.players[gameVars.currentPlayer].location)
+		gameVars.players[gameVars.currentPlayer].ghost.show = true
 		#Variable switch
 		gameVars.currentPlayer = player
 		#Move Ball
+		gameVars.players[gameVars.currentPlayer].ghost.show = false
 		emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
 		reconnect()
 
