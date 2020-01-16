@@ -29,13 +29,14 @@ func _physics_process(delta):
 		uprot = -ROT_SPEED
 	else:
 		uprot = 0
-	
+	distance = clamp(distance,.5,10)
 	offset = (offset.normalized().rotated(up,(rotator*(PI/180))).rotated(Vector3.RIGHT,(uprot*(PI/180))))*distance
 	#offset.y = height - fix do it doesnt drift towards ground
 	
 	pos = target + offset
 	
-	look_at_from_position(pos, target, up)
+	if pos != target:
+		look_at_from_position(pos, target, up)
 
 func _input(event):
 	if event.is_action_pressed("cam_zoom_in"):

@@ -1,9 +1,6 @@
 extends Area
 
-signal oob
-
-func _ready():
-	pass
+onready var router = get_node("/root/Signal_Router")
 
 func _on_Area_body_entered(body): #when ball enters hole
-	emit_signal("oob")
+	router.on_oob()

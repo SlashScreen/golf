@@ -28,13 +28,11 @@ func _ready():
 ###SCORE FUNCTIONS###
 func new_hole():
 	print("New Hole")
-	disconnect_signal()
 	gameVars.players[gameVars.currentPlayer].scorecard.append(gameVars.players[gameVars.currentPlayer].stroke) #add to card
 	gameVars.players[gameVars.currentPlayer].stroke = 0 #reset stroke
 	gameVars.players[gameVars.currentPlayer].hole += 1
 	gameVars.players[gameVars.currentPlayer].location = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
 	switch_players(incrementPlayerCount())
-	reconnect()
 	var o = (levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin)
 	emit_signal("clearHud")
 	emit_signal("move_ball",Vector3(o.x,o.y,o.z))
@@ -59,17 +57,6 @@ func hard_reset():
 		var o = (levels[gameVars.map].holes[str(p.hole)].origin)
 		p.location = o
 		gameVars.players[i] = p
-	reconnect()
-
-func disconnect_signal():
-	baseScene.get_node(str(gameVars.players[gameVars.currentPlayer].hole)).get_node("Kill_Volume").get_node("Area").disconnect("oob",self,"on_oob")
-	baseScene.get_node(str(gameVars.players[gameVars.currentPlayer].hole)).get_node("Golf_Hole_Volume").get_node("Hole_Area").disconnect("ball_in_hole",self,"on_game_won")
-
-#TODO: function for switching players
-func reconnect():
-	#Connect
-	baseScene.get_node(str(gameVars.players[gameVars.currentPlayer].hole)).get_node("Kill_Volume").get_node("Area").connect("oob",self,"on_oob")
-	baseScene.get_node(str(gameVars.players[gameVars.currentPlayer].hole)).get_node("Golf_Hole_Volume").get_node("Hole_Area").connect("ball_in_hole",self,"on_game_won")
 
 ###SIGNAL PROCESSING###
 func on_oob():
@@ -87,8 +74,6 @@ func on_game_won():
 
 func switch_players(player):
 	if howManyPlayers > 1:
-		
-		disconnect_signal()
 		#Ghost
 		gameVars.players[gameVars.currentPlayer].ghost.show = true
 		#Variable switch
@@ -96,7 +81,6 @@ func switch_players(player):
 		#Move Ball
 		gameVars.players[gameVars.currentPlayer].ghost.show = false
 		emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
-		reconnect()
 
 func on_new_turn():
 	switch_players(incrementPlayerCount())

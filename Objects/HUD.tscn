@@ -56,7 +56,7 @@ rect_scale = Vector2( 0.5, 0.5 )
 theme = ExtResource( 2 )
 text = "Hole"
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Confetti" type="Particles2D" parent="."]
 material = SubResource( 1 )
 position = Vector2( 540, 300 )
 emitting = false
@@ -73,4 +73,9 @@ script = ExtResource( 5 )
 visible = false
 margin_right = 215.0
 margin_bottom = 83.0
+theme = ExtResource( 2 )
+
+[node name="Player" type="Label" parent="."]
+margin_right = 103.0
+margin_bottom = 62.0
 theme = ExtResource( 2 )

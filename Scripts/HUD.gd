@@ -12,6 +12,7 @@ func _process(delta): #set text
 	get_node("Stroke").set_text("Stroke: "+str(cplayer.stroke))
 	get_node("Par").set_text("Par "+ str(cplayer.par))
 	get_node("Hole").set_text("Hole "+ str(cplayer.hole+1))
+	get_node("Player").set_text("Player "+ str(game_vars.currentPlayer+1))
 
 func _on_hole():
 	#Set text based on score vs par relationship

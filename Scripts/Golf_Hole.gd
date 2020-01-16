@@ -1,10 +1,7 @@
 extends Area
 
-signal ball_in_hole
-
-func _ready():
-	pass # Replace with function body.
+onready var router = get_node("/root/Signal_Router")
 
 func _on_Hole_Area_body_entered(body):
-	emit_signal("ball_in_hole")
+	router.on_game_won()
 	print("In hole!")
