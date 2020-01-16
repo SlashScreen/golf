@@ -10,6 +10,6 @@ func _physics_process(delta):
 		hide()
 		#print("ghostSync " + str(player))
 		#ah, yes. one of the most convoluted pieces of code I've ever written.
-		set_translation(get_parent().get_parent().get_node("Golf_Ball_Obj").get_node("Ball").get_global_transform().origin)
+		set_translation((get_parent().get_parent().get_node("Golf_Ball_Obj").get_node("Ball").get_global_transform().origin))
 	if show:
 		show()

@@ -4,7 +4,7 @@ export var STATE = "still"
 var should_move = false
 var nextLocation = Vector3(0,0,0)
 var lastState
-var holeSetup = false
+var fromHit = false
 onready var game_vars = get_node("/root/Signal_Router").gameVars
 signal newTurn
 
@@ -21,11 +21,16 @@ func _process(delta):
 		STATE = "still"
 	else:
 		STATE = "moving"
-	testStateChange()
+	
+	if fromHit and lastState == "moving" and STATE == "still":
+		emit_signal("newTurn")
+		fromHit = false
+	
 	lastState = STATE
 
 func _on_oob(): #signal
 	should_move = true
+	fromHit = false
 	nextLocation = get_node("Arrow").last_pos
 
 func _on_move_ball(vec):
@@ -41,8 +46,3 @@ func _integrate_forces(state): #Reset
 
 func switch(p):
 	get_node("Ballmesh").get_surface_material(0).set_shader_param("Color",game_vars.players[p].color)
-
-func testStateChange():
-	if lastState == "moving" and STATE == "still":
-		#emit_signal("newTurn")
-		pass

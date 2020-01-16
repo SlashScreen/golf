@@ -34,6 +34,7 @@ func _process(delta):
 				last_pos = ball.get_parent().get_translation() #set last position
 				game_vars.players[game_vars.currentPlayer].stroke += 1 #yes I'm setting the score here. Shouldn't be too big of an issue
 				ball.apply_central_impulse(newdir*((d/end_dist)*max_power)) #apply impulse
+				ball.fromHit = true
 				$HitSFX.play_once()
 	else:
 		hide()
