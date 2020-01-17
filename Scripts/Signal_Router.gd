@@ -8,14 +8,11 @@ onready var file = File.new()
 var levels
 onready var baseScene = get_parent().get_node("level")
 onready var t = get_node("/root/DelayManager")
-onready var ghostasset = load("res://Objects/Ghost_Ball.tscn")
 
 signal move_ball(vec)
 signal on_oob
 signal on_won
 signal clearHud
-signal ghost(color,pos)
-signal remove_ghost
 signal switch(p)
 
 func _ready():
@@ -23,7 +20,6 @@ func _ready():
 	levels = JSON.parse(file.get_as_text()).get_result()
 	file.close()
 	hard_reset()
-	connect("switch",self,"switch_players")
 	get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Ball").connect("newTurn",self,"on_new_turn")
 ###SCORE FUNCTIONS###
 func new_hole():
@@ -33,9 +29,7 @@ func new_hole():
 	gameVars.players[gameVars.currentPlayer].hole += 1
 	gameVars.players[gameVars.currentPlayer].location = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
 	switch_players(incrementPlayerCount())
-	var o = (levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin)
 	emit_signal("clearHud")
-	emit_signal("move_ball",Vector3(o.x,o.y,o.z))
 
 func hard_reset():
 	gameVars.map = "test"
@@ -78,9 +72,13 @@ func switch_players(player):
 		gameVars.players[gameVars.currentPlayer].ghost.show = true
 		#Variable switch
 		gameVars.currentPlayer = player
+		emit_signal("switch",player)
 		#Move Ball
 		gameVars.players[gameVars.currentPlayer].ghost.show = false
-		emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
+		print(str(gameVars.players[gameVars.currentPlayer].location))
+		var o = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
+		print(str(o))
+		emit_signal("move_ball",Vector3(o.x,o.y,o.z))
 
 func on_new_turn():
 	switch_players(incrementPlayerCount())
