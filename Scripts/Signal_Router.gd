@@ -70,16 +70,16 @@ func on_game_won():
 
 func switch_players(player):
 	if howManyPlayers > 1:
+		var ball =  get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Ball")
 		#Ghost
 		gameVars.players[gameVars.currentPlayer].ghost.show = true
 		#Variable switch
 		gameVars.currentPlayer = player
-		emit_signal("switch",player)
 		#Move Ball
 		gameVars.players[gameVars.currentPlayer].ghost.show = false
-		print(str(gameVars.players[gameVars.currentPlayer].location))
-		var o = gameVars.players[gameVars.currentPlayer].location 	#levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
-		emit_signal("move_ball",Vector3(o.x,o.y,o.z))
+		emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
+		ball.change_color(player)
+		ball.reset_variables(player)
 
 func on_new_turn():
 	switch_players(incrementPlayerCount())
