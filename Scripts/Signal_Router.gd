@@ -78,7 +78,7 @@ func switch_players(player):
 		#Move Ball
 		gameVars.players[gameVars.currentPlayer].ghost.show = false
 		print(str(gameVars.players[gameVars.currentPlayer].location))
-		var o = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
+		var o = gameVars.players[gameVars.currentPlayer].location 	#levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
 		emit_signal("move_ball",Vector3(o.x,o.y,o.z))
 
 func on_new_turn():

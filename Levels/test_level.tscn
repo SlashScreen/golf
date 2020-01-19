@@ -21,6 +21,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6745, -4.84186, 38.5342 )
 [node name="0" type="Spatial" parent="."]
 
 [node name="Course" parent="0" instance=ExtResource( 3 )]
+editor/display_folded = true
 transform = Transform( 1.97147, 0, 0, 0, 1.97147, 0, 0, 0, 1.97147, 2.36525, -1.60759, 0 )
 
 [node name="Course_Mesh" parent="0/Course" index="0"]
@@ -55,6 +56,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26649, -1.28893, 5.29682 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4246, 0, 29.3974 )
 
 [node name="Course" parent="1" instance=ExtResource( 3 )]
+editor/display_folded = true
 transform = Transform( -5.14554, 0, -4.49837e-07, 0, 5.14554, 0, 4.49837e-07, 0, -5.14554, 25.2176, -5.60759, 3 )
 
 [node name="Course_Mesh" parent="1/Course" index="0"]

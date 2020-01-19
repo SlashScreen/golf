@@ -23,6 +23,8 @@ func _process(delta):
 		STATE = "moving"
 	
 	if fromHit and lastState == "moving" and STATE == "still":
+		game_vars.players[game_vars.currentPlayer].location = get_translation()
+		print(str(game_vars.currentPlayer)+str(game_vars.players[game_vars.currentPlayer].location))
 		emit_signal("newTurn")
 		fromHit = false
 	
@@ -34,15 +36,22 @@ func _on_oob(): #signal
 	nextLocation = get_node("Arrow").last_pos
 
 func _on_move_ball(vec):
+	print("move function")
 	should_move = true
-	nextLocation = vec
+	nextLocation = Vector3(vec.x,vec.y,vec.z)
+	set_sleeping(false)
 
 func _integrate_forces(state): #Reset
 	if should_move:
+		print("moving from integrate " + str(nextLocation))
 		should_move = false
 		set_linear_velocity(Vector3(0,0,0)) #Make it stop moving
 		set_angular_velocity(Vector3(0,0,0)) #Make it stop rotating
 		state.transform.origin = nextLocation
 
 func switch(p):
+	fromHit = false
+	print("switching from golf node")
+	print(str(p)+str(game_vars.players[p].location))
+	_on_move_ball(game_vars.players[p].location)
 	get_node("Ballmesh").get_surface_material(0).set_shader_param("Color",game_vars.players[p].color)
