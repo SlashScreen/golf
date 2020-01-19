@@ -28,6 +28,7 @@ func new_hole():
 	gameVars.players[gameVars.currentPlayer].stroke = 0 #reset stroke
 	gameVars.players[gameVars.currentPlayer].hole += 1
 	gameVars.players[gameVars.currentPlayer].location = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
+	gameVars.players[gameVars.currentPlayer].ghost.move()
 	switch_players(incrementPlayerCount())
 	emit_signal("clearHud")
 
@@ -64,6 +65,7 @@ func on_game_won():
 	t.set_wait_time(2) #const here is how long to wait before new hole
 	t.start()
 	yield(t,"timeout")
+	
 	new_hole()
 
 func switch_players(player):
@@ -77,7 +79,6 @@ func switch_players(player):
 		gameVars.players[gameVars.currentPlayer].ghost.show = false
 		print(str(gameVars.players[gameVars.currentPlayer].location))
 		var o = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
-		print(str(o))
 		emit_signal("move_ball",Vector3(o.x,o.y,o.z))
 
 func on_new_turn():

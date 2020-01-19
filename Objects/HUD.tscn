@@ -76,6 +76,8 @@ margin_bottom = 83.0
 theme = ExtResource( 2 )
 
 [node name="Player" type="Label" parent="."]
-margin_right = 103.0
-margin_bottom = 62.0
+margin_left = 31.357
+margin_top = 36.0025
+margin_right = 134.357
+margin_bottom = 98.0025
 theme = ExtResource( 2 )

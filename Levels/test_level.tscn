@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/models/maps/testcourse4.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://Objects/Kill_Volume.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Golf_Hole_Volume.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/models/maps/testcourse3.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://assets/models/maps/testcourse5.obj" type="ArrayMesh" id=7]
 
 [node name="level" type="Spatial"]
 
@@ -16,12 +16,14 @@ transform = Transform( -1.00055, 0, 0.025922, 0, 1.00089, 0, -0.025922, 0, -1.00
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="Marker" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5147, -4.89376, 31.3597 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6745, -4.84186, 38.5342 )
 
 [node name="0" type="Spatial" parent="."]
 
 [node name="Course" parent="0" instance=ExtResource( 3 )]
 transform = Transform( 1.97147, 0, 0, 0, 1.97147, 0, 0, 0, 1.97147, 2.36525, -1.60759, 0 )
+
+[node name="Course_Mesh" parent="0/Course" index="0"]
 mesh = ExtResource( 4 )
 material/0 = null
 material/1 = null
@@ -54,6 +56,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4246, 0, 29.3974 )
 
 [node name="Course" parent="1" instance=ExtResource( 3 )]
 transform = Transform( -5.14554, 0, -4.49837e-07, 0, 5.14554, 0, 4.49837e-07, 0, -5.14554, 25.2176, -5.60759, 3 )
+
+[node name="Course_Mesh" parent="1/Course" index="0"]
 mesh = ExtResource( 7 )
 material/0 = null
 material/1 = null
@@ -62,11 +66,24 @@ material/3 = null
 material/4 = null
 material/5 = null
 material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
 
 [node name="Kill_Volume" parent="1" instance=ExtResource( 5 )]
-transform = Transform( 33.8851, 0, 0, 0, 1, 0, 0, 0, 33.8851, 0, -9.94058, 0 )
+transform = Transform( 33.8851, 0, 0, 0, 1, 0, 0, 0, 33.8851, 25.5502, -9.94058, -14.1358 )
 
 [node name="Golf_Hole_Volume" parent="1" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4854, -5.55014, 3.04769 )
 
 [node name="Ghost_Balls" type="Node" parent="."]
+
+[editable path="0/Course"]
+
+[editable path="1/Course"]

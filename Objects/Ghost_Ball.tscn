@@ -7,6 +7,7 @@
 
 [node name="Ghost_Ball" type="MeshInstance"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+material_override = ExtResource( 1 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
 script = ExtResource( 2 )
