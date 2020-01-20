@@ -31,7 +31,7 @@ func _process(delta):
 			self.material_override.set_shader_param("Power",(d/end_dist))
 			#Hit ball
 			if Input.is_mouse_button_pressed(BUTTON_LEFT): #if mouse button clicked
-				last_pos = ball.get_parent().get_translation() #set last position
+				last_pos = ball.get_transform().origin #set last position
 				game_vars.players[game_vars.currentPlayer].stroke += 1 #yes I'm setting the score here. Shouldn't be too big of an issue
 				ball.apply_central_impulse(newdir*((d/end_dist)*max_power)) #apply impulse
 				ball.fromHit = true

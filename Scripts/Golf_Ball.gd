@@ -22,11 +22,14 @@ func _process(delta):
 		STATE = "moving"
 	
 	if fromHit and lastState == "moving" and STATE == "still":
-		game_vars.players[game_vars.currentPlayer].location = to_global(get_translation())
+		game_vars.players[game_vars.currentPlayer].location = get_transform().origin
+		print(str(game_vars.players[game_vars.currentPlayer].location))
+		print(str(get_transform().origin))
 		print("current location: " + str(game_vars.currentPlayer)+str(game_vars.players[game_vars.currentPlayer].location))
 		emit_signal("newTurn")
 		fromHit = false
-	
+	#print(str(get_transform().origin))
+	#print(str(game_vars.players[game_vars.currentPlayer].location))
 	lastState = STATE
 
 func _on_oob(): #signal
@@ -42,7 +45,7 @@ func _on_move_ball(vec):
 
 func _integrate_forces(state): #Reset
 	if should_move:
-		print("moving from integrate " + str(nextLocation))
+		print("moving from integrate " + str(nextLocation) + "; Current saved location is " + str(game_vars.players[game_vars.currentPlayer].location))
 		should_move = false
 		set_linear_velocity(Vector3(0,0,0)) #Make it stop moving
 		set_angular_velocity(Vector3(0,0,0)) #Make it stop rotating

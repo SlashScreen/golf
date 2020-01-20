@@ -13,7 +13,6 @@ signal move_ball(vec)
 signal on_oob
 signal on_won
 signal clearHud
-signal switch(p)
 
 func _ready():
 	file.open("res://Levels/levels.json",File.READ)
@@ -78,6 +77,7 @@ func switch_players(player):
 		#Move Ball
 		gameVars.players[gameVars.currentPlayer].ghost.show = false
 		emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
+		#set vars
 		ball.change_color(player)
 		ball.reset_variables(player)
 
