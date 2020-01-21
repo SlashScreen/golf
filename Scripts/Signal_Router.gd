@@ -22,7 +22,7 @@ func _ready():
 	get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Ball").connect("newTurn",self,"on_new_turn")
 ###SCORE FUNCTIONS###
 func new_hole():
-	print("New Hole")
+	print("\nNEW HOLE\n")
 	gameVars.players[gameVars.currentPlayer].scorecard.append(gameVars.players[gameVars.currentPlayer].stroke) #add to card
 	gameVars.players[gameVars.currentPlayer].stroke = 0 #reset stroke
 	gameVars.players[gameVars.currentPlayer].hole += 1
@@ -56,7 +56,7 @@ func hard_reset():
 func on_oob():
 	gameVars.players[gameVars.currentPlayer].stroke += 1
 	emit_signal("on_oob")
-	print("Out Of Bounds!!!")
+	print("\nOOB\n")
 
 func on_game_won():
 	print("In Hole!")
@@ -69,6 +69,7 @@ func on_game_won():
 
 func switch_players(player):
 	if howManyPlayers > 1:
+		print("\nSWITCH to " + str(player) + "\n")
 		var ball =  get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Ball")
 		#Ghost
 		gameVars.players[gameVars.currentPlayer].ghost.show = true

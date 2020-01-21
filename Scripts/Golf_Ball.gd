@@ -4,6 +4,7 @@ export var STATE = "still"
 var should_move = false
 var nextLocation = Vector3(0,0,0)
 var lastState
+var temp
 var fromHit = false
 onready var game_vars = get_node("/root/Signal_Router").gameVars
 signal newTurn
@@ -23,14 +24,17 @@ func _process(delta):
 	
 	if fromHit and lastState == "moving" and STATE == "still":
 		game_vars.players[game_vars.currentPlayer].location = get_transform().origin
-		print(str(game_vars.players[game_vars.currentPlayer].location))
-		print(str(get_transform().origin))
-		print("current location: " + str(game_vars.currentPlayer)+str(game_vars.players[game_vars.currentPlayer].location))
+		print("current location: " +str(game_vars.players[game_vars.currentPlayer].location)+str(get_transform().origin))
 		emit_signal("newTurn")
 		fromHit = false
 	#print(str(get_transform().origin))
 	#print(str(game_vars.players[game_vars.currentPlayer].location))
 	lastState = STATE
+	var o = game_vars.players[game_vars.currentPlayer].location
+	if temp != Vector3(o.x,o.y,o.z):
+		print("Last saved location was " + str(temp)+", was set to " + str(game_vars.players[game_vars.currentPlayer].location))
+		print("But, the current world space is "+str(get_transform().origin))
+	temp = Vector3(o.x,o.y,o.z)
 
 func _on_oob(): #signal
 	should_move = true
@@ -50,6 +54,7 @@ func _integrate_forces(state): #Reset
 		set_linear_velocity(Vector3(0,0,0)) #Make it stop moving
 		set_angular_velocity(Vector3(0,0,0)) #Make it stop rotating
 		state.transform.origin = nextLocation
+		print("Integrated forces, now "+str(state.transform.origin))
 
 func change_color(p):
 	get_node("Ballmesh").get_surface_material(0).set_shader_param("Color",game_vars.players[p].color)
