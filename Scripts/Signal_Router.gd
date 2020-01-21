@@ -3,7 +3,7 @@ extends Node
 
 ##INIT###
 export var gameVars = {}
-export var howManyPlayers = 2
+export var howManyPlayers = 1
 onready var file = File.new()
 var levels
 onready var baseScene = get_parent().get_node("level")
@@ -91,3 +91,6 @@ func incrementPlayerCount():
 	if i > howManyPlayers-1:
 		i = 0
 	return i
+
+func return_ball():
+	return get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Ball")

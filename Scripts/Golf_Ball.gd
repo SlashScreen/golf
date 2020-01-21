@@ -24,17 +24,18 @@ func _process(delta):
 	
 	if fromHit and lastState == "moving" and STATE == "still":
 		game_vars.players[game_vars.currentPlayer].location = get_transform().origin
+		print("Set Saved location to " + str(game_vars.players[game_vars.currentPlayer].location) + ". World location is " + str(get_transform().origin))
 		print("current location: " +str(game_vars.players[game_vars.currentPlayer].location)+str(get_transform().origin))
 		emit_signal("newTurn")
 		fromHit = false
 	#print(str(get_transform().origin))
 	#print(str(game_vars.players[game_vars.currentPlayer].location))
 	lastState = STATE
-	var o = game_vars.players[game_vars.currentPlayer].location
-	if temp != Vector3(o.x,o.y,o.z):
-		print("Last saved location was " + str(temp)+", was set to " + str(game_vars.players[game_vars.currentPlayer].location))
-		print("But, the current world space is "+str(get_transform().origin))
-	temp = Vector3(o.x,o.y,o.z)
+	#var o = game_vars.players[game_vars.currentPlayer].location
+	#if temp != Vector3(o.x,o.y,o.z):
+	#	print("Last saved location was " + str(temp)+", was set to " + str(game_vars.players[game_vars.currentPlayer].location))
+	#	print("But, the current world space is "+str(get_transform().origin))
+	#temp = Vector3(o.x,o.y,o.z)
 
 func _on_oob(): #signal
 	should_move = true
