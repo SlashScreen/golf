@@ -27,7 +27,7 @@ func _process(delta):
 			result.position = result.position + (result.normal*.1)
 			var newdir = ball.get_global_transform().origin.direction_to(result.position)
 			#Point arrow and set size
-			look_at(result.position,Vector3(0,1,0)) #set_rotation(Vector3(0,newdir.y,0))
+			look_at(result.position,result.normal) #set_rotation(Vector3(0,newdir.y,0))
 			set_scale(Vector3(.5,1,d/end_dist))
 			self.material_override.set_shader_param("Power",(d/end_dist))
 			#Hit ball
