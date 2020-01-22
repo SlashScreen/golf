@@ -7,5 +7,5 @@ space_override = 3
 gravity_point = true
 gravity_vec = Vector3( 0, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionVolume" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

@@ -28,7 +28,10 @@ func new_hole():
 	gameVars.players[gameVars.currentPlayer].hole += 1
 	gameVars.players[gameVars.currentPlayer].location = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
 	gameVars.players[gameVars.currentPlayer].ghost.move()
-	switch_players(incrementPlayerCount())
+	if howManyPlayers > 1:
+		switch_players(incrementPlayerCount())
+	else:
+		emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
 	emit_signal("clearHud")
 
 func hard_reset():
@@ -81,6 +84,8 @@ func switch_players(player):
 		#set vars
 		ball.change_color(player)
 		ball.reset_variables(player)
+	#else:
+		#emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
 
 func on_new_turn():
 	switch_players(incrementPlayerCount())
