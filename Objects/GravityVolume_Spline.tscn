@@ -6,11 +6,11 @@
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array(  ),
-"tilts": PoolRealArray(  )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 25.322, -16.6309, -4.08101, 0, 0, 0, 0, 0, 0, 23.2902, -16.5989, -4.16426 ),
+"tilts": PoolRealArray( 0, 0 )
 }
 
-[node name="Area" type="Area"]
+[node name="GravityVolume_Spline" type="Area"]
 space_override = 3
 gravity_point = true
 gravity_vec = Vector3( 0, 0, 0 )

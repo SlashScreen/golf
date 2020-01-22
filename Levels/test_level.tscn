@@ -6,8 +6,8 @@
 [ext_resource path="res://assets/models/maps/testcourse4.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://Objects/Kill_Volume.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Golf_Hole_Volume.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/GravityVolume_Sphere.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/models/maps/testspherecourse.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://assets/models/maps/testspherecourse.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://Objects/GravityVolume_Sphere.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -68,10 +68,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4854, -5.55014, 3.04769 )
 [node name="1" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7496, 0, 29.3974 )
 
-[node name="Area" parent="1" instance=ExtResource( 7 )]
-transform = Transform( -18.6914, 0, -1.63405e-06, 0, 18.6914, 0, 1.63405e-06, 0, -18.6914, 24.496, -16.4813, -3.82323 )
-
 [node name="Kill_Volume" parent="1" instance=ExtResource( 5 )]
+editor/display_folded = true
 transform = Transform( 33.8851, 0, 0, 0, 1, 0, 0, 0, 33.8851, 25.5502, -41.2343, -14.1358 )
 
 [node name="CollisionShape" parent="1/Kill_Volume/Area" index="0"]
@@ -85,8 +83,11 @@ transform = Transform( 1, 0, 0, 0, 0.0741784, 0.997245, 0, -0.997245, 0.0741784,
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3025, -15.8235, -5.80275 )
 
 [node name="Course_Mesh" parent="1/Course" index="0"]
-mesh = ExtResource( 8 )
+mesh = ExtResource( 7 )
 material/0 = null
+
+[node name="GravityVolume_Sphere" parent="1" instance=ExtResource( 8 )]
+transform = Transform( 9.1649, 0, 0, 0, 9.1649, 0, 0, 0, 9.1649, 24.6084, -16.5243, -4.18595 )
 
 [node name="Ghost_Balls" type="Node" parent="."]
 

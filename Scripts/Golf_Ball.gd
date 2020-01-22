@@ -63,3 +63,6 @@ func change_color(p):
 func reset_variables(p):
 	fromHit = false
 	get_node("Arrow").last_pos = game_vars.players[p].location
+
+func get_ball_transform():
+	return get_transform()

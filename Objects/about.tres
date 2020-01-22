@@ -1,0 +1,13 @@
+ABOUT: Objects Folder
+
+Boat: The boats seen in the distance of Par harbor.
+Confetti: The confetti effect that plays when you get in the hole.
+Course: The golf course- each golf course is one of these.
+DelayManager: a autoloaded timer for whatever delays I need to do.
+Ghost_Ball: Those transparent balls in multiplayer that indicate where another player's ball is.
+Golf_Ball_Obj: The golf ball.
+Golf_Hole_Volume: The volume that goes inside a hole that triggers that you won the hole.
+GravityVolume_Sphere: A custom fravity field- center of gravity is the center.
+GravityVolume_Spline: A custom gravity field- center of gravity is a bezier curve.
+HUD: The HUD.
+Kill_Volume: When the ball enters this volume, it is reset. 
