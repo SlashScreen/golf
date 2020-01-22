@@ -23,7 +23,8 @@ func _process(delta):
 			var ball = get_parent() #ball
 			var d = result.position.distance_to(get_global_transform().origin)#distance between points
 			d = clamp(d,0,end_dist) #clamp to mximum distance
-			result.position.y = get_global_transform().origin.y #lock rotation
+			#result.position.y = get_global_transform().origin.y #lock rotation
+			result.position = result.position + (result.normal*.1)
 			var newdir = ball.get_global_transform().origin.direction_to(result.position)
 			#Point arrow and set size
 			look_at(result.position,Vector3(0,1,0)) #set_rotation(Vector3(0,newdir.y,0))

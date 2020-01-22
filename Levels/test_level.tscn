@@ -69,7 +69,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4854, -5.55014, 3.04769 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7496, 0, 29.3974 )
 
 [node name="Area" parent="1" instance=ExtResource( 7 )]
-transform = Transform( -18.6914, 0, -1.63405e-06, 0, 18.6914, 0, 1.63405e-06, 0, -18.6914, 24.6223, -14.4067, -4.14708 )
+transform = Transform( -18.6914, 0, -1.63405e-06, 0, 18.6914, 0, 1.63405e-06, 0, -18.6914, 24.496, -16.4813, -3.82323 )
 
 [node name="Kill_Volume" parent="1" instance=ExtResource( 5 )]
 transform = Transform( 33.8851, 0, 0, 0, 1, 0, 0, 0, 33.8851, 25.5502, -41.2343, -14.1358 )
