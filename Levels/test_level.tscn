@@ -7,7 +7,7 @@
 [ext_resource path="res://Objects/Kill_Volume.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Golf_Hole_Volume.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/models/maps/testspherecourse.obj" type="ArrayMesh" id=7]
-[ext_resource path="res://Objects/GravityVolume_Sphere.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/GravityVolume_Spline.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -86,8 +86,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3025, -15.8235, -5.80275 )
 mesh = ExtResource( 7 )
 material/0 = null
 
-[node name="GravityVolume_Sphere" parent="1" instance=ExtResource( 8 )]
-transform = Transform( 9.1649, 0, 0, 0, 9.1649, 0, 0, 0, 9.1649, 24.6084, -16.5243, -4.18595 )
+[node name="GravityVolume_Spline" parent="1" instance=ExtResource( 8 )]
+
+[node name="CollisionVolume" parent="1/GravityVolume_Spline" index="0"]
+transform = Transform( 12.7555, 0, 0, 0, 12.7555, 0, 0, 0, 12.7555, 24.3209, -16.7672, -4.52621 )
 
 [node name="Ghost_Balls" type="Node" parent="."]
 
@@ -96,3 +98,5 @@ transform = Transform( 9.1649, 0, 0, 0, 9.1649, 0, 0, 0, 9.1649, 24.6084, -16.52
 [editable path="1/Kill_Volume"]
 
 [editable path="1/Course"]
+
+[editable path="1/GravityVolume_Spline"]
