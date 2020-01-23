@@ -27,6 +27,7 @@ func new_hole():
 	gameVars.players[gameVars.currentPlayer].stroke = 0 #reset stroke
 	gameVars.players[gameVars.currentPlayer].hole += 1
 	gameVars.players[gameVars.currentPlayer].location = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
+	get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Arrow").last_pos = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
 	gameVars.players[gameVars.currentPlayer].ghost.move()
 	if howManyPlayers > 1:
 		switch_players(incrementPlayerCount())

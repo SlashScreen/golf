@@ -24,6 +24,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4137, -19.4464, 24.2304 )
 [node name="0" type="Spatial" parent="."]
 
 [node name="Course" parent="0" instance=ExtResource( 3 )]
+editor/display_folded = true
 transform = Transform( 1.97147, 0, 0, 0, 1.97147, 0, 0, 0, 1.97147, 2.36525, -1.60759, 0 )
 
 [node name="Course_Mesh" parent="0/Course" index="0"]

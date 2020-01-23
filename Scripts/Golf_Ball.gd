@@ -45,7 +45,7 @@ func _on_oob(): #signal
 func _on_move_ball(vec):
 	print("move function")
 	should_move = true
-	nextLocation = Vector3(vec.x,vec.y,vec.z)
+	nextLocation = to_vec(vec)
 	set_sleeping(false)
 
 func _integrate_forces(state): #Reset
@@ -54,7 +54,7 @@ func _integrate_forces(state): #Reset
 		should_move = false
 		set_linear_velocity(Vector3(0,0,0)) #Make it stop moving
 		set_angular_velocity(Vector3(0,0,0)) #Make it stop rotating
-		state.transform.origin = nextLocation
+		state.transform.origin = to_vec(nextLocation)
 		print("Integrated forces, now "+str(state.transform.origin))
 
 func change_color(p):
@@ -66,3 +66,6 @@ func reset_variables(p):
 
 func get_ball_transform():
 	return get_transform()
+
+func to_vec(dict):
+	return Vector3(dict.x,dict.y,dict.z)
