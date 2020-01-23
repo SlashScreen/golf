@@ -3,7 +3,7 @@ extends Node
 
 ##INIT###
 export var gameVars = {}
-export var howManyPlayers = 1
+export var howManyPlayers = 2
 onready var file = File.new()
 var levels
 onready var baseScene = get_parent().get_node("level")
@@ -74,17 +74,18 @@ func on_game_won():
 func switch_players(player):
 	if howManyPlayers > 1:
 		print("\nSWITCH to " + str(player) + "\n")
-		var ball =  get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Ball")
+		var ball =  get_parent().get_node("level").get_node("Golf_Ball_Obj")
 		#Ghost
 		gameVars.players[gameVars.currentPlayer].ghost.show = true
 		#Variable switch
 		gameVars.currentPlayer = player
 		#Move Ball
-		gameVars.players[gameVars.currentPlayer].ghost.show = false
+		
 		emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
 		#set vars
 		ball.change_color(player)
 		ball.reset_variables(player)
+		gameVars.players[gameVars.currentPlayer].ghost.show = false
 	#else:
 		#emit_signal("move_ball",gameVars.players[gameVars.currentPlayer].location)
 
