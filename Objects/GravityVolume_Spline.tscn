@@ -15,9 +15,12 @@ space_override = 3
 gravity_point = true
 gravity_vec = Vector3( 0, 0, 0 )
 script = ExtResource( 1 )
+spline_resolution = 10.0
 
 [node name="CollisionVolume" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
 
 [node name="Spline" type="Path" parent="."]
 curve = SubResource( 2 )
+
+[node name="SplineHead" type="PathFollow" parent="Spline"]
