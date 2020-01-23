@@ -19,7 +19,7 @@ func _ready():
 	levels = JSON.parse(file.get_as_text()).get_result()
 	file.close()
 	hard_reset()
-	get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Ball").connect("newTurn",self,"on_new_turn")
+	get_parent().get_node("level").get_node("Golf_Ball_Obj").connect("newTurn",self,"on_new_turn")
 ###SCORE FUNCTIONS###
 func new_hole():
 	print("\nNEW HOLE\n")
@@ -98,4 +98,4 @@ func incrementPlayerCount():
 	return i
 
 func return_ball():
-	return get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Ball")
+	return get_parent().get_node("level").get_node("Golf_Ball_Obj")
