@@ -42,7 +42,7 @@ func hard_reset():
 	for i in range(howManyPlayers):
 		var p = {}
 		var ghost = load("res://Objects/Ghost_Ball.tscn").instance()
-		p.color = Color(50*i,50*i,50*i)
+		p.color = Color(.5*i,.5*i,.5*i) #NTS: ball color in 0-1, not 255
 		p.scorecard = []
 		p.stroke = 0
 		p.hole = 0
