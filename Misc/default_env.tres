@@ -6,4 +6,8 @@
 background_mode = 2
 background_sky = SubResource( 1 )
 ambient_light_color = Color( 1, 1, 1, 1 )
+fog_depth_begin = 3.0
+fog_depth_curve = 0.170755
+fog_height_enabled = true
+fog_height_curve = 0.153893
 ssao_enabled = true

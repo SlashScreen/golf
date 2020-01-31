@@ -24,7 +24,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4137, -19.4464, 24.2304 )
 [node name="0" type="Spatial" parent="."]
 
 [node name="Course" parent="0" instance=ExtResource( 3 )]
-editor/display_folded = true
 transform = Transform( 1.97147, 0, 0, 0, 1.97147, 0, 0, 0, 1.97147, 2.36525, -1.60759, 0 )
 
 [node name="Course_Mesh" parent="0/Course" index="0"]
@@ -56,7 +55,6 @@ transform = Transform( 33.8851, 0, 0, 0, 1, 0, 0, 0, 33.8851, 0, -9.94058, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26649, -1.28893, 5.29682 )
 
 [node name="1_old" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4246, 0, 29.3974 )
 visible = false
 
@@ -70,7 +68,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4854, -5.55014, 3.04769 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7496, 0, 29.3974 )
 
 [node name="Kill_Volume" parent="1" instance=ExtResource( 5 )]
-editor/display_folded = true
 transform = Transform( 33.8851, 0, 0, 0, 1, 0, 0, 0, 33.8851, 25.5502, -41.2343, -14.1358 )
 
 [node name="CollisionShape" parent="1/Kill_Volume/Area" index="0"]
@@ -93,6 +90,13 @@ material/0 = null
 transform = Transform( 12.7555, 0, 0, 0, 12.7555, 0, 0, 0, 12.7555, 24.3209, -16.7672, -4.52621 )
 
 [node name="Ghost_Balls" type="Node" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.880055, -0.368015, 0.300114, 0, 0.631989, 0.774978, -0.474872, -0.682023, 0.556185, 0, 0, 0 )
+shadow_enabled = true
+shadow_color = Color( 0.121569, 0.176471, 0.235294, 1 )
+
+[editable path="Golf_Ball_Obj"]
 
 [editable path="0/Course"]
 

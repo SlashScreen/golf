@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Misc/Hud_Theme.tres" type="Theme" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="temppick" type="ColorPickerButton" parent="."]
+visible = false
+margin_right = 184.0
+margin_bottom = 194.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vertical box" type="VBoxContainer" parent="."]
+margin_left = 307.045
+margin_top = 100.731
+margin_right = 737.045
+margin_bottom = 416.731
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Vertical box"]
+margin_right = 430.0
+margin_bottom = 37.0
+theme = ExtResource( 1 )
+text = "It's Golf."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="Vertical box"]
+margin_top = 87.0
+margin_right = 430.0
+margin_bottom = 130.0
+theme = ExtResource( 1 )
+text = "Play Golf."
+
+[node name="Options" type="Button" parent="Vertical box"]
+margin_top = 180.0
+margin_right = 430.0
+margin_bottom = 223.0
+theme = ExtResource( 1 )
+text = "Options."
+
+[node name="Quit" type="Button" parent="Vertical box"]
+margin_top = 273.0
+margin_right = 430.0
+margin_bottom = 316.0
+theme = ExtResource( 1 )
+text = "Quit."
