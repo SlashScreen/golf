@@ -11,6 +11,7 @@ signal newTurn
 
 func _ready():
 	#Load textures and things later
+	print("ball getting ready!")
 	get_tree().get_root().get_node("Signal_Router").connect("move_ball",self,"_on_move_ball")
 	get_tree().get_root().get_node("Signal_Router").connect("on_oob",self,"_on_oob")
 	change_color(0)

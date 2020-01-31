@@ -6,7 +6,7 @@ export var gameVars = {}
 export var howManyPlayers = 2
 onready var file = File.new()
 var levels
-onready var baseScene = get_parent().get_node("level")
+onready var baseScene = null#
 onready var t = get_node("/root/DelayManager")
 
 signal move_ball(vec)
@@ -14,20 +14,30 @@ signal on_oob
 signal on_won
 signal clearHud
 
-func _ready():
+func changeScene(orig,res):
+	orig.queue_free()
+	var s = load(res)
+	#problem: cannot load before child added, cannot add before loaded...
+	var scene = s.instance()
+	loadit(scene)
+	get_parent().add_child(scene)
+
+func loadit(scene):
+	print("loading...")
+	baseScene = scene
 	file.open("res://Levels/levels.json",File.READ)
 	levels = JSON.parse(file.get_as_text()).get_result()
 	file.close()
 	hard_reset()
-	get_parent().get_node("level").get_node("Golf_Ball_Obj").connect("newTurn",self,"on_new_turn")
-###SCORE FUNCTIONS###
+	scene.get_node("Golf_Ball_Obj").connect("newTurn",self,"on_new_turn")
+	###SCORE FUNCTIONS###
 func new_hole():
 	print("\nNEW HOLE\n")
 	gameVars.players[gameVars.currentPlayer].scorecard.append(gameVars.players[gameVars.currentPlayer].stroke) #add to card
 	gameVars.players[gameVars.currentPlayer].stroke = 0 #reset stroke
 	gameVars.players[gameVars.currentPlayer].hole += 1
 	gameVars.players[gameVars.currentPlayer].location = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
-	get_parent().get_node("level").get_node("Golf_Ball_Obj").get_node("Arrow").last_pos = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
+	baseScene.get_node("Golf_Ball_Obj").get_node("Arrow").last_pos = levels[gameVars.map].holes[str(gameVars.players[gameVars.currentPlayer].hole)].origin
 	gameVars.players[gameVars.currentPlayer].ghost.move()
 	if howManyPlayers > 1:
 		switch_players(incrementPlayerCount())
@@ -50,8 +60,8 @@ func hard_reset():
 		ghost.show = false
 		ghost.color = p.color
 		ghost.name = str(i)
-		get_parent().get_node("level").get_node("Ghost_Balls").add_child(ghost)
-		p.ghost = get_parent().get_node("level").get_node("Ghost_Balls").get_node(str(i))
+		baseScene.get_node("Ghost_Balls").add_child(ghost)
+		p.ghost = baseScene.get_node("Ghost_Balls").get_node(str(i))
 		var o = (levels[gameVars.map].holes[str(p.hole)].origin)
 		p.location = o
 		gameVars.players[i] = p
@@ -74,7 +84,7 @@ func on_game_won():
 func switch_players(player):
 	if howManyPlayers > 1:
 		print("\nSWITCH to " + str(player) + "\n")
-		var ball =  get_parent().get_node("level").get_node("Golf_Ball_Obj")
+		var ball =  baseScene.get_node("Golf_Ball_Obj")
 		#Ghost
 		gameVars.players[gameVars.currentPlayer].ghost.show = true
 		#Variable switch
@@ -100,4 +110,4 @@ func incrementPlayerCount():
 	return i
 
 func return_ball():
-	return get_parent().get_node("level").get_node("Golf_Ball_Obj")
+	return baseScene.get_node("Golf_Ball_Obj")

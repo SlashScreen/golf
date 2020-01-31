@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Misc/Hud_Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/buttons/Play.gd" type="Script" id=2]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -11,24 +12,26 @@ __meta__ = {
 
 [node name="temppick" type="ColorPickerButton" parent="."]
 visible = false
-margin_right = 184.0
-margin_bottom = 194.0
+margin_left = 506.0
+margin_top = 290.0
+margin_right = 518.0
+margin_bottom = 310.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Vertical box" type="VBoxContainer" parent="."]
-margin_left = 307.045
-margin_top = 100.731
-margin_right = 737.045
-margin_bottom = 416.731
+margin_left = 421.0
+margin_top = 142.0
+margin_right = 603.0
+margin_bottom = 458.0
 custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="Label" parent="Vertical box"]
-margin_right = 430.0
+margin_right = 182.0
 margin_bottom = 37.0
 theme = ExtResource( 1 )
 text = "It's Golf."
@@ -40,21 +43,23 @@ __meta__ = {
 
 [node name="Play" type="Button" parent="Vertical box"]
 margin_top = 87.0
-margin_right = 430.0
+margin_right = 182.0
 margin_bottom = 130.0
 theme = ExtResource( 1 )
 text = "Play Golf."
+script = ExtResource( 2 )
 
 [node name="Options" type="Button" parent="Vertical box"]
 margin_top = 180.0
-margin_right = 430.0
+margin_right = 182.0
 margin_bottom = 223.0
 theme = ExtResource( 1 )
 text = "Options."
 
 [node name="Quit" type="Button" parent="Vertical box"]
 margin_top = 273.0
-margin_right = 430.0
+margin_right = 182.0
 margin_bottom = 316.0
 theme = ExtResource( 1 )
 text = "Quit."
+[connection signal="pressed" from="Vertical box/Play" to="Vertical box/Play" method="_on_Play_pressed"]
