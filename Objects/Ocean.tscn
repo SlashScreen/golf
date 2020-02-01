@@ -1,42 +1,68 @@
 [gd_scene load_steps=6 format=2]
 
 [sub_resource type="PlaneMesh" id=1]
-subdivide_width = 50
-subdivide_depth = 50
+subdivide_width = 200
+subdivide_depth = 200
 
 [sub_resource type="Shader" id=2]
-code = "shader_type spatial;
+code = "//Head
+shader_type spatial;
 render_mode specular_toon;
-
+//Variables
 uniform sampler2D noise;
-
+uniform vec4 main_color : hint_color;
+uniform vec4 foam_color : hint_color;
+uniform float near = 0.15;
+uniform float far = 300.0;
+uniform float intersection_max_threshhold = .3;
+uniform float wave_height = 2.0;
+uniform float wave_speed = 25.0;
+//Custom Functions
+float linearize(float c_depth) {
+    c_depth = 2.0 * c_depth - 1.0;
+    return near * far / (far + c_depth * (near - far));
+}
+//Main Loops
 void vertex(){
-	VERTEX.y = texture(noise,UV*(sin(TIME/50.0))).g;
+	VERTEX.y = texture(noise,UV*(sin(TIME/wave_speed))).g*wave_height;
 }
 
 void fragment() {
-	float fresnel = sqrt(1.0 - dot(NORMAL, VIEW));
-	RIM = 0.2;
-	METALLIC = 0.0;
-	ROUGHNESS = 0.01;
-	ALBEDO = vec3(0.1, 0.3, 0.5) + (0.1 * fresnel);
-	NORMALMAP = texture(noise,UV*(sin(TIME/50.0))).rgb;
+	//float fresnel = sqrt(1.0 - dot(NORMAL, VIEW));
+	//RIM = 0.2;
+	//METALLIC = 0.0;
+	//ROUGHNESS = 0.01;
+	
+	//ALBEDO = vec3(0.1, 0.3, 0.5) + (0.1 * fresnel);
+	
+	float zdepth = linearize(texture(DEPTH_TEXTURE, SCREEN_UV).x);
+	float zpos = linearize(FRAGCOORD.z);
+	float diff = zdepth - zpos;
+	//Mix colors: step is within threshhold
+	vec4 col = mix(foam_color,main_color,step(intersection_max_threshhold,diff));
+	ALBEDO = col.rgb;
+	
+	NORMALMAP = texture(noise,UV*(sin(TIME/wave_speed))).rgb;
 }"
 
-[sub_resource type="OpenSimplexNoise" id=4]
+[sub_resource type="OpenSimplexNoise" id=3]
 
-[sub_resource type="NoiseTexture" id=5]
+[sub_resource type="NoiseTexture" id=4]
 seamless = true
-noise = SubResource( 4 )
+noise = SubResource( 3 )
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=5]
 shader = SubResource( 2 )
-shader_param/noise = SubResource( 5 )
+shader_param/main_color = Color( 0.423529, 0.945098, 1, 1 )
+shader_param/foam_color = Color( 1, 1, 1, 1 )
+shader_param/near = 0.15
+shader_param/far = 300.0
+shader_param/intersection_max_threshhold = 0.3
+shader_param/wave_height = 2.0
+shader_param/wave_speed = 25.0
+shader_param/noise = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance"]
-transform = Transform( 9.26219, 0, 0, 0, 1, 0, 0, 0, 9.26219, 0, 0, 0 )
+transform = Transform( 9.26219, 0, 0, 0, 1, 0, 0, 0, 9.26219, 0, -0.676919, 0 )
 mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.107964, 0.000449058, -0.000429112, 0.00497885, -0.279564, 0.960114, 0.000311183, -0.10366, -0.0301851, 0, 2.71479, 0 )
+material/0 = SubResource( 5 )
