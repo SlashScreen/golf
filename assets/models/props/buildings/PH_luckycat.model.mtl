@@ -1,0 +1,244 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl bark (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.831 0.655 0.424 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl lightStone (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.812 0.808 0.855 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl border (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.518 0.376 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl bricks (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.886 0.467 0.341 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl lightStone (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.812 0.808 0.855 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl tire (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.298 0.314 0.365 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl natureKit-leavesGreen (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.353 0.769 0.714 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/natureKit-leavesGreen (Instance) (Instance).png
+
+newmtl wood (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.579 0.402 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl stone (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.667 0.663 0.737 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl darkStone (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.431 0.431 0.478 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl _defaultMat (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfBorder (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.373 0.204 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl roof (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.886 0.467 0.341 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl _defaultMat (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl darkStone (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.431 0.431 0.478 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl paper (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.969 0.941 0.929 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl tire (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.298 0.314 0.365 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl lightRed (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.949 0.373 0.335 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl blueSteel (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.141 0.565 0.831 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl woodDark (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.641 0.422 0.293 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl greyLight (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.843 0.902 0.953 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl brownDark (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.639 0.388 0.278 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl brown (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.827 0.565 0.404 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl grass (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.302 0.561 0.431 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl bark (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/bark (Instance).png
+
+newmtl grass (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.302 0.561 0.431 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfBorder (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.373 0.204 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfGreen (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.192 0.949 0.686 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfGreen (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.192 0.949 0.686 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl black (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.267 0.267 0.267 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfBuilding (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.714 0.408 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfBuilding (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.714 0.408 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Green_leafs (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.298 0.529 0.427 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Green_leafs (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.298 0.529 0.427 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl natureKit-leavesGreen (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.353 0.769 0.714 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl element (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.945098 0.9490196 0.9647059 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl glass (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.2980392 0.3137255 0.3647059 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl element (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.945098 0.9490196 0.9647059 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl glass (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.2980392 0.3137255 0.3647059 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl stone (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.667 0.663 0.737 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl lightStone (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.812 0.808 0.855 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl stone (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.667 0.663 0.737 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl lightStone (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.812 0.808 0.855 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl stone (Instance) (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.667 0.663 0.737 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl lightStone (Instance) (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.812 0.808 0.855 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl stone (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.667 0.663 0.737 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl lightStone (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.812 0.808 0.855 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl glass (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.2980392 0.3137255 0.3647059 
+Ks 0.330000 0.330000 0.330000 
+

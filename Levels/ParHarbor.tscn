@@ -1,20 +1,30 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/models/maps/ParHarbor-terrain-AF.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Objects/Course.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/models/maps/PH_Bumpy.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://Misc/Gridtheme/Victoriantheme.meshlib" type="MeshLibrary" id=4]
-[ext_resource path="res://assets/models/props/tree_pine_short.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=5]
 [ext_resource path="res://Objects/Golf_Ball_Obj.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/models/maps/boathol.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://assets/models/maps/PH_Lombard.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=9]
+[ext_resource path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" type="Texture" id=10]
+[ext_resource path="res://assets/tex/dirt.png" type="Texture" id=11]
+[ext_resource path="res://Levels/Parharbor_hmap/data.hterrain" type="Resource" id=12]
+[ext_resource path="res://assets/graphics/tree_pine_shortSquare_detailed_NE.png" type="Texture" id=13]
+[ext_resource path="res://assets/tex/grass.png" type="Texture" id=14]
+[ext_resource path="res://assets/tex/asphalt.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Ocean.tscn" type="PackedScene" id=16]
 
 [node name="level" type="Spatial"]
 
 [node name="Sun" type="DirectionalLight" parent="."]
-transform = Transform( 0.32111, -0.118039, -0.939657, -0.123387, -0.988959, 0.0820675, -0.93897, 0.0895889, -0.332129, 0, 26.0869, 0 )
+transform = Transform( 0.0446132, -0.925624, -0.375806, -0.341095, -0.367687, 0.865136, -0.93897, 0.0895888, -0.332129, 0, 26.0869, 0 )
 shadow_enabled = true
 
 [node name="4" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.497156, 0, -0.867661, 0, 1, 0, 0.867661, 0, -0.497156, 14.0676, 0.288187, -4.11125 )
+transform = Transform( -0.497156, 0, -0.867661, 0, 1, 0, 0.867661, 0, -0.497156, 66.0644, 0.288187, 33.7866 )
 
 [node name="Course_Mesh" parent="4" index="0"]
 transform = Transform( -1.74754, 0, -0.97267, 0, 2, 0, 0.97267, 0, -1.74754, 0, 0, 0 )
@@ -186,6 +196,7 @@ material/163 = null
 material/164 = null
 
 [node name="Terrain" type="MeshInstance" parent="."]
+visible = false
 cast_shadow = 2
 mesh = ExtResource( 1 )
 material/0 = null
@@ -193,29 +204,159 @@ material/1 = null
 material/2 = null
 material/3 = null
 
-[node name="tree" type="MeshInstance" parent="."]
-transform = Transform( 0.412271, 0, 0, 0, 0.412271, 0, 0, 0, 0.412271, 0, 0, 0 )
-mesh = ExtResource( 5 )
-material/0 = null
-material/1 = null
-
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 50.7234, -0.699153, 36.7826 )
 mesh_library = ExtResource( 4 )
 cell_scale = 4.0
 data = {
-"cells": PoolIntArray( 65529, 0, 196610, 65530, 0, 196610, 65528, 1, 2, 65528, 5, 1, 65528, 9, 0, 65528, 13, 2, 1, 16, 1048576, 5, 16, 1048577, 65533, 16, 1048578, 65528, 65535, 196610, 65529, 65535, 196610 )
+"cells": PoolIntArray( 65529, 0, 196610, 65530, 0, 196610, 65528, 1, 2, 65528, 5, 1, 65528, 9, 0, 65528, 13, 2, 1, 16, 1048576, 5, 16, 1048577, 65533, 16, 1048578, 65512, 144, 1441792, 65511, 151, 1441792, 65510, 159, 1441792, 65508, 168, 1441792, 65507, 178, 1441792, 65505, 188, 1441792, 65503, 200, 1441792, 65501, 213, 1441792, 65499, 228, 1441792, 65530, 65533, 1048579, 65528, 65535, 196610, 65529, 65535, 196610 )
 }
 __meta__ = {
 "_editor_clip_": 0
 }
 
 [node name="0" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.591408, 0, 0.806372, 0, 1, 0, -0.806372, 0, -0.591408, -5.49686, 8.38533, 33.71 )
+transform = Transform( -0.591408, 0, 0.806372, 0, 1, 0, -0.806372, 0, -0.591408, 39.9637, 7.72877, 65.9022 )
+
+[node name="Course_Mesh" parent="0" index="0"]
+transform = Transform( 2, 0, 0, 0, 0.7, 0, 0, 0, 2, -9.23462, -2.69627, -7.84207 )
+mesh = ExtResource( 8 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
 
 [node name="3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.0374, -1.90735e-06, 3.09176 )
+
+[node name="Course_Mesh" parent="3" index="0"]
+transform = Transform( 1.54898, 0, -1.26517, 0, 2, 0, 1.26517, 0, 1.54898, 0, 0, 0 )
+mesh = ExtResource( 7 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
 
 [node name="Ball" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0419, 0.651545, 0 )
 
+[node name="GridMap3" type="GridMap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -163.739, 3.47658, 205.981 )
+mesh_library = ExtResource( 4 )
+cell_scale = 4.0
+data = {
+"cells": PoolIntArray( 109, 65460, 1441792, 113, 65460, 1441793, 117, 65460, 1441794, 112, 65469, 1048577, 116, 65469, 1048578, 120, 65469, 1048576 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.0951, 0, 57.839 )
+
+[node name="HTerrain" type="Spatial" parent="."]
+script = ExtResource( 5 )
+collision_enabled = true
+ambient_wind = 0.0
+lod_scale = 2.0
+map_scale = Vector3( 0.25, 0.25, 0.25 )
+_terrain_data = ExtResource( 12 )
+chunk_size = 32
+shader_type = "Classic4Lite"
+custom_shader = null
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = true
+ground/albedo_bump_0 = ExtResource( 11 )
+ground/normal_roughness_0 = null
+ground/albedo_bump_1 = ExtResource( 14 )
+ground/normal_roughness_1 = null
+ground/albedo_bump_2 = ExtResource( 15 )
+ground/normal_roughness_2 = null
+ground/albedo_bump_3 = ExtResource( 11 )
+ground/normal_roughness_3 = null
+
+[node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
+script = ExtResource( 9 )
+__meta__ = {
+"_editor_icon": ExtResource( 10 )
+}
+layer_index = 0
+texture = ExtResource( 13 )
+view_distance = 300.0
+custom_shader = null
+density = 1.196
+shader_params/u_terrain_normal_basis = Basis( 4, 0, 0, 0, 4, 0, 0, 0, 4 )
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+
+[node name="MeshInstance" parent="." instance=ExtResource( 16 )]
+transform = Transform( 9.26219, 0, 0, 0, 1, 0, 0, 0, 9.26219, 36.9928, 0, 3.62413 )
+visible = false
+
 [editable path="4"]
+
+[editable path="0"]
+
+[editable path="3"]

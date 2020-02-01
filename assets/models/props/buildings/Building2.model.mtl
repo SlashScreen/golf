@@ -1,0 +1,40 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl _defaultMat (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl element (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.945 0.949 0.965 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/element (Instance).png
+
+newmtl border (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.518 0.376 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl lightStone
+Ka 0.000000 0.000000 0.000000 
+Kd 0.945 0.949 0.965 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/lightStone.png
+
+newmtl bricks (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.886 0.467 0.341 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl glass (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.298 0.314 0.365 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl satellite (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.027 0.4 0.694 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/satellite (Instance).png
+
