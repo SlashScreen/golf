@@ -1,0 +1,40 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl border (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.518 0.376 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl border (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.518 0.376 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl wood (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.579 0.402 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/wood (Instance) (Instance).png
+
+newmtl element (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.945 0.949 0.965 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/element (Instance) (Instance).png
+
+newmtl glass (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.298 0.314 0.365 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl glass (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.298 0.314 0.365 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl wood (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.579 0.402 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/wood (Instance).png
+

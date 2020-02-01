@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/PH_Lombard.obj-7ffc00820f4b065b3e929ed84cfd3a57.mesh"
+
+[deps]
+
+files=[ "res://.import/PH_Lombard.obj-7ffc00820f4b065b3e929ed84cfd3a57.mesh" ]
+
+source_file="res://assets/models/maps/PH_Lombard.obj"
+dest_files=[ "res://.import/PH_Lombard.obj-7ffc00820f4b065b3e929ed84cfd3a57.mesh", "res://.import/PH_Lombard.obj-7ffc00820f4b065b3e929ed84cfd3a57.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

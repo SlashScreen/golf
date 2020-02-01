@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="PlaneMesh" id=1]
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+render_mode specular_toon;
+
+uniform sampler2D noise;
+
+void vertex(){
+	VERTEX.y = texture(noise,UV*(sin(TIME/50.0))).g;
+}
+
+void fragment() {
+	float fresnel = sqrt(1.0 - dot(NORMAL, VIEW));
+	RIM = 0.2;
+	METALLIC = 0.0;
+	ROUGHNESS = 0.01;
+	ALBEDO = vec3(0.1, 0.3, 0.5) + (0.1 * fresnel);
+	NORMALMAP = texture(noise,UV*(sin(TIME/50.0))).rgb;
+}"
+
+[sub_resource type="OpenSimplexNoise" id=4]
+
+[sub_resource type="NoiseTexture" id=5]
+seamless = true
+noise = SubResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/noise = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance"]
+transform = Transform( 9.26219, 0, 0, 0, 1, 0, 0, 0, 9.26219, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.107964, 0.000449058, -0.000429112, 0.00497885, -0.279564, 0.960114, 0.000311183, -0.10366, -0.0301851, 0, 2.71479, 0 )

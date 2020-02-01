@@ -2,26 +2,26 @@
 
 [ext_resource path="res://Misc/Shaders/fog.shader" type="Shader" id=1]
 
-[sub_resource type="OpenSimplexNoise" id=2]
+[sub_resource type="OpenSimplexNoise" id=1]
 period = 110.5
 lacunarity = 3.07
 
-[sub_resource type="NoiseTexture" id=3]
+[sub_resource type="NoiseTexture" id=2]
 seamless = true
-noise = SubResource( 2 )
+noise = SubResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 1 )
-shader_param/noise = SubResource( 3 )
+shader_param/noise = SubResource( 2 )
 
-[sub_resource type="PlaneMesh" id=5]
-material = SubResource( 4 )
+[sub_resource type="PlaneMesh" id=4]
+material = SubResource( 3 )
 subdivide_width = 20
 subdivide_depth = 20
 
 [node name="Fog" type="MeshInstance"]
-transform = Transform( 3.00872, 0, 0, 0, 1, 0, 0, 0, 3.00872, 0, 0, 0 )
-mesh = SubResource( 5 )
+transform = Transform( 3.00872, 0, 0, 0, 1, 0, 0, 0, 3.00872, 0, 0.497489, 0 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
