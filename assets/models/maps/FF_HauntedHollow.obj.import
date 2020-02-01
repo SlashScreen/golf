@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/FF_HauntedHollow.obj-18a96178f6d600289a6343d23ff0d898.mesh"
+
+[deps]
+
+files=[ "res://.import/FF_HauntedHollow.obj-18a96178f6d600289a6343d23ff0d898.mesh" ]
+
+source_file="res://assets/models/maps/FF_HauntedHollow.obj"
+dest_files=[ "res://.import/FF_HauntedHollow.obj-18a96178f6d600289a6343d23ff0d898.mesh", "res://.import/FF_HauntedHollow.obj-18a96178f6d600289a6343d23ff0d898.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

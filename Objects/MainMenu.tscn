@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Misc/Hud_Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/buttons/Play.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/buttons/Quit.gd" type="Script" id=3]
+[ext_resource path="res://assets/graphics/UI/PNG/blue_button04.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/UI/PNG/blue_button05.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/UI/PNG/grey_button00.png" type="Texture" id=7]
 
 [node name="MainMenu" type="CenterContainer"]
 anchor_right = 1.0
@@ -22,18 +25,18 @@ __meta__ = {
 }
 
 [node name="Vertical box" type="VBoxContainer" parent="."]
-margin_left = 421.0
-margin_top = 142.0
-margin_right = 603.0
-margin_bottom = 458.0
+margin_left = 417.0
+margin_top = 129.0
+margin_right = 607.0
+margin_bottom = 471.0
 custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="Label" parent="Vertical box"]
-margin_right = 182.0
-margin_bottom = 37.0
+margin_right = 190.0
+margin_bottom = 45.0
 theme = ExtResource( 1 )
 text = "It's Golf."
 align = 1
@@ -42,27 +45,60 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" type="Button" parent="Vertical box"]
-margin_top = 87.0
-margin_right = 182.0
-margin_bottom = 130.0
+[node name="Play" type="TextureButton" parent="Vertical box"]
+margin_top = 95.0
+margin_right = 190.0
+margin_bottom = 144.0
 theme = ExtResource( 1 )
-text = "Play Golf."
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 7 )
 script = ExtResource( 2 )
 
-[node name="Options" type="Button" parent="Vertical box"]
-margin_top = 180.0
-margin_right = 182.0
-margin_bottom = 223.0
-theme = ExtResource( 1 )
-text = "Options."
+[node name="Label" type="Label" parent="Vertical box/Play"]
+margin_right = 188.0
+margin_bottom = 45.0
+text = "Play Golf."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Quit" type="Button" parent="Vertical box"]
-margin_top = 273.0
-margin_right = 182.0
-margin_bottom = 316.0
+[node name="Options" type="TextureButton" parent="Vertical box"]
+margin_top = 194.0
+margin_right = 190.0
+margin_bottom = 243.0
 theme = ExtResource( 1 )
-text = "Quit."
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="Vertical box/Options"]
+margin_right = 188.0
+margin_bottom = 45.0
+text = "Options."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="Vertical box"]
+margin_top = 293.0
+margin_right = 190.0
+margin_bottom = 342.0
+theme = ExtResource( 1 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 7 )
 script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Vertical box/Quit"]
+margin_right = 188.0
+margin_bottom = 45.0
+text = "Quit."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Vertical box/Play" to="Vertical box/Play" method="_on_Play_pressed"]
 [connection signal="pressed" from="Vertical box/Quit" to="Vertical box/Quit" method="_on_Quit_pressed"]

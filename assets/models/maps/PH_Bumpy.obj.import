@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/PH_Bumpy.obj-5014a243fb9608b1bf81e559e22211b7.mesh"
+
+[deps]
+
+files=[ "res://.import/PH_Bumpy.obj-5014a243fb9608b1bf81e559e22211b7.mesh" ]
+
+source_file="res://assets/models/maps/PH_Bumpy.obj"
+dest_files=[ "res://.import/PH_Bumpy.obj-5014a243fb9608b1bf81e559e22211b7.mesh", "res://.import/PH_Bumpy.obj-5014a243fb9608b1bf81e559e22211b7.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
