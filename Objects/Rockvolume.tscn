@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+render_mode unshaded;
+uniform float magnitude = .1;
+
+void fragment() {
+	vec2 newUV = vec2(SCREEN_UV.x,SCREEN_UV.y+(sin(TIME)*magnitude));
+    vec3 c = texture(SCREEN_TEXTURE, newUV, 0.0).rgb;
+    ALBEDO.rgb = c;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/magnitude = 0.1
+
+[node name="Rockvolume" type="MeshInstance"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )

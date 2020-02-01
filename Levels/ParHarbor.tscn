@@ -651,7 +651,7 @@ ground/normal_roughness_0 = null
 ground/albedo_bump_1 = ExtResource( 14 )
 ground/normal_roughness_1 = null
 ground/albedo_bump_2 = ExtResource( 15 )
-ground/normal_roughness_2 = null
+ground/normal_roughness_2 = ExtResource( 15 )
 ground/albedo_bump_3 = ExtResource( 11 )
 ground/normal_roughness_3 = null
 
