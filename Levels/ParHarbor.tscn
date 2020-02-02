@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/models/maps/ParHarbor-terrain-AF.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Objects/Course.tscn" type="PackedScene" id=2]
@@ -17,12 +17,21 @@
 [ext_resource path="res://assets/tex/asphalt.png" type="Texture" id=15]
 [ext_resource path="res://Objects/Ocean.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/models/props/buildings/PH_luckycat.model.obj" type="ArrayMesh" id=17]
+[ext_resource path="res://assets/models/props/Par_Harbor/PH_lighthouse.obj" type="ArrayMesh" id=18]
+[ext_resource path="res://Misc/PH_ENV.tres" type="Environment" id=19]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 1.06702
+height = 26.5533
 
 [node name="level" type="Spatial"]
 
 [node name="Sun" type="DirectionalLight" parent="."]
 transform = Transform( 0.0446132, -0.925624, -0.375806, -0.341095, -0.367687, 0.865136, -0.93897, 0.0895888, -0.332129, 0, 26.0869, 0 )
+light_color = Color( 0.964706, 0.866667, 0.772549, 1 )
+light_energy = 0.45
 shadow_enabled = true
+shadow_color = Color( 0.0352941, 0.0392157, 0.180392, 1 )
 
 [node name="4" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.497156, 0, -0.867661, 0, 1, 0, 0.867661, 0, -0.497156, 66.0644, 0.288187, 33.7866 )
@@ -300,6 +309,9 @@ material/28 = null
 
 [node name="Ball" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0419, 0.651545, 0 )
+
+[node name="Camera" parent="Ball/camfollow" index="0"]
+environment = ExtResource( 19 )
 
 [node name="GridMap3" type="GridMap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -163.739, 3.47658, 205.981 )
@@ -673,10 +685,31 @@ shader_params/u_bottom_ao = null
 [node name="Ocean" parent="." instance=ExtResource( 16 )]
 transform = Transform( 296.709, 0, 0, 0, 1, 0, 0, 0, 296.709, 29.3543, -1.44322, 54.1943 )
 
+[node name="PH_lighthouse" type="MeshInstance" parent="."]
+transform = Transform( 0.762341, 0, 0.647176, 0, 1, 0, -0.647176, 0, 0.762341, 15.3374, 5.52036, 20.0965 )
+mesh = ExtResource( 18 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="GravityTube" type="Area" parent="PH_lighthouse"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0968666, 10.3056, -0.0822334 )
+space_override = 3
+gravity_vec = Vector3( 0, 1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PH_lighthouse/GravityTube"]
+shape = SubResource( 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 19 )
+
 [editable path="4"]
 
 [editable path="0"]
 
 [editable path="3"]
+
+[editable path="Ball"]
 
 [editable path="2"]
