@@ -1,0 +1,10 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+resource_name = "LH_Interior"
+albedo_color = Color( 0.368627, 0.368627, 0.368627, 1 )
+metallic = 0.5
+ao_enabled = true
+ao_light_affect = 0.1
+ao_on_uv2 = false
+ao_texture_channel = 0

@@ -1,0 +1,11 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+resource_name = "LH_Darklamp"
+albedo_color = Color( 0.015995, 0.007413, 0.003028, 1 )
+metallic = 0.2
+emission_enabled = true
+emission = Color( 0.968627, 0.635294, 0.0627451, 1 )
+emission_energy = 16.0
+emission_operator = 0
+emission_on_uv2 = false
