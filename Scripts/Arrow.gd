@@ -1,16 +1,18 @@
-#Handles golf ball physics. May beed to move elsewhere, this is wierd
 extends Sprite3D
-#Constants
+#Handles golf ball physics. May beed to move elsewhere, this is wierd
+
+#vars
+export var last_pos = Vector3(0,0,0)
+onready var game_vars = get_node("/root/Signal_Router").gameVars
 var ray_length = 1000
 var max_power = 15
 var end_dist = 2
-export var last_pos = Vector3(0,0,0)
-onready var game_vars = get_node("/root/Signal_Router").gameVars
 
 func _process(delta):
 	#hide, show, and hit based on ball state
 	if get_parent().STATE == "still":
 		show()
+		#raytrace
 		var cam = get_parent().get_node("camfollow/Camera")
 		var space_state = cam.get_world().direct_space_state
 		var mouse = get_viewport().get_mouse_position() #event position
