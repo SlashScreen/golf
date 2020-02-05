@@ -1,15 +1,19 @@
 extends Control
-
+#Heads up display
 onready var game_vars = get_node("/root/Signal_Router").gameVars
 
 func _ready():
+	#connecting
 	get_tree().get_root().get_node("Signal_Router").connect("on_won",self,"_on_hole")
 	get_tree().get_root().get_node("Signal_Router").connect("clearHud",self,"_clear")
 	get_tree().get_root().get_node("Signal_Router").connect("msg",self,"custom_message")
+	#clear
 	_clear()
 
 func _process(delta): #set text
+	#reference
 	var cplayer = game_vars.players[game_vars.currentPlayer]
+	#sets all the text
 	get_node("Stroke").set_text("Stroke: "+str(cplayer.stroke))
 	get_node("Par").set_text("Par "+ str(cplayer.par))
 	get_node("Hole").set_text("Hole "+ str(cplayer.hole+1))
@@ -18,7 +22,7 @@ func _process(delta): #set text
 func custom_message(s):
 	get_node("Victory").set_text(s);
 
-func _on_hole():
+func _on_hole(): #on new hole 
 	#Set text based on score vs par relationship
 	var text = ""
 	var cplayer = game_vars.players[game_vars.currentPlayer]
@@ -47,7 +51,8 @@ func _on_hole():
 				text = "Condor!"
 			_:
 				text = "Finished!"
+	#sets central message 
 	custom_message(text)
 
-func _clear():
+func _clear(): #clears central message
 	get_node("Victory").set_text("")
