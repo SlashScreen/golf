@@ -13,6 +13,8 @@ signal move_ball(vec)
 signal on_oob
 signal on_won
 signal clearHud
+signal freeze(c)
+signal msg(m)
 
 func changeScene(orig,res):
 	orig.queue_free()
@@ -69,6 +71,13 @@ func hard_reset():
 ###SIGNAL PROCESSING###
 func on_oob():
 	gameVars.players[gameVars.currentPlayer].stroke += 1
+	emit_signal("freeze",true)
+	emit_signal("msg","Out of Bounds!")
+	t.set_wait_time(1.5) #const here is how long to wait before unfreeze
+	t.start()
+	yield(t,"timeout")
+	emit_signal("freeze",false)
+	emit_signal("clearHud")
 	emit_signal("on_oob")
 	print("\nOOB\n")
 

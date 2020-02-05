@@ -3,6 +3,7 @@ extends Camera
 export var distance = 4
 export var height = 2
 export var iso = false
+export var frozen = false
 var rotator = 0 #in degrees
 var uprot = 0
 var ROT_SPEED = 3
@@ -11,10 +12,14 @@ var SCROLL_SPEED = .5
 func _ready():
 	set_physics_process(true)
 	set_as_toplevel(true)
+	get_node("/root/Signal_Router").connect("freeze",self,"freeze")
 	if iso:
 		set_projection(1)
 	else:
 		set_projection(0)
+
+func freeze(c): #sets frozen to c, bool
+	frozen = c
 
 func _physics_process(delta):
 	var target = get_parent().get_global_transform().origin
@@ -23,7 +28,7 @@ func _physics_process(delta):
 	if iso:
 		pos = target + Vector3(distance,distance,distance)
 		#set_fov((distance/10)*178)
-	else:
+	elif not frozen:
 		set_fov(70)
 		var offset = pos - target
 		if Input.is_action_pressed("cam_left"):

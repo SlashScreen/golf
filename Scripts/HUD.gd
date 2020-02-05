@@ -5,6 +5,7 @@ onready var game_vars = get_node("/root/Signal_Router").gameVars
 func _ready():
 	get_tree().get_root().get_node("Signal_Router").connect("on_won",self,"_on_hole")
 	get_tree().get_root().get_node("Signal_Router").connect("clearHud",self,"_clear")
+	get_tree().get_root().get_node("Signal_Router").connect("msg",self,"custom_message")
 	_clear()
 
 func _process(delta): #set text
@@ -13,6 +14,9 @@ func _process(delta): #set text
 	get_node("Par").set_text("Par "+ str(cplayer.par))
 	get_node("Hole").set_text("Hole "+ str(cplayer.hole+1))
 	get_node("Player").set_text("Player "+ str(game_vars.currentPlayer+1))
+
+func custom_message(s):
+	get_node("Victory").set_text(s);
 
 func _on_hole():
 	#Set text based on score vs par relationship
@@ -43,7 +47,7 @@ func _on_hole():
 				text = "Condor!"
 			_:
 				text = "Finished!"
-	get_node("Victory").set_text(text)
+	custom_message(text)
 
 func _clear():
 	get_node("Victory").set_text("")
