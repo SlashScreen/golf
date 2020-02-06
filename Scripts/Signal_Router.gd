@@ -58,7 +58,6 @@ func new_hole(): #sets up next home
 
 func hard_reset():
 	#inits new map
-	gameVars.map = "test" #TODO: change this
 	gameVars.currentPlayer = 0
 	gameVars.players = {}
 	#creates player objects
@@ -141,3 +140,6 @@ func incrementPlayerCount(): #increments player count up by 1, and loops if reac
 
 func return_ball(): #returns ball object
 	return baseScene.get_node("Golf_Ball_Obj")
+
+func set_map(m):
+	gameVars.map = m
