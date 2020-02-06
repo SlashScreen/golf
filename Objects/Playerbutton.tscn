@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Misc/Hud_Theme.tres" type="Theme" id=1]
+
+[node name="BG" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -5.0
+margin_right = -605.0
+margin_bottom = -180.0
+color = Color( 0.176471, 0.172549, 0.172549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colorpick" type="ColorPickerButton" parent="."]
+margin_left = 10.0
+margin_top = 45.0
+margin_right = 408.0
+margin_bottom = 344.0
+flat = true
+color = Color( 0.992157, 0.00784314, 0.00784314, 1 )
+edit_alpha = false
+
+[node name="Name" type="LineEdit" parent="."]
+margin_left = 20.0
+margin_top = 355.0
+margin_right = 403.0
+margin_bottom = 414.0
+theme = ExtResource( 1 )
+text = "PLAYER NAME"
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="Label" parent="."]
+margin_left = 20.0
+margin_right = 400.0
+margin_bottom = 45.0
+theme = ExtResource( 1 )
+text = "Color:"

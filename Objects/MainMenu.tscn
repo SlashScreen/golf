@@ -1,40 +1,34 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Misc/Hud_Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/buttons/Play.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/buttons/Quit.gd" type="Script" id=3]
 [ext_resource path="res://assets/graphics/UI/PNG/blue_button04.png" type="Texture" id=4]
 [ext_resource path="res://assets/graphics/UI/PNG/blue_button05.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Playerselect.gd" type="Script" id=6]
 [ext_resource path="res://assets/graphics/UI/PNG/grey_button00.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/playerbutton.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Diorama.gd" type="Script" id=9]
 
-[node name="MainMenu" type="CenterContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[sub_resource type="CubeMesh" id=1]
 
-[node name="temppick" type="ColorPickerButton" parent="."]
-visible = false
-margin_left = 506.0
-margin_top = 290.0
-margin_right = 518.0
-margin_bottom = 310.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[sub_resource type="Environment" id=2]
+background_mode = 1
+background_color = Color( 0.764706, 0.988235, 0.956863, 1 )
 
-[node name="Vertical box" type="VBoxContainer" parent="."]
+[node name="MainMenu" type="Node2D"]
+
+[node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 417.0
-margin_top = 129.0
+margin_top = 79.0
 margin_right = 607.0
-margin_bottom = 471.0
+margin_bottom = 520.0
 custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="Vertical box"]
+[node name="Title" type="Label" parent="Menu"]
 margin_right = 190.0
 margin_bottom = 45.0
 theme = ExtResource( 1 )
@@ -45,7 +39,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" type="TextureButton" parent="Vertical box"]
+[node name="Play" type="TextureButton" parent="Menu"]
 margin_top = 95.0
 margin_right = 190.0
 margin_bottom = 144.0
@@ -55,7 +49,7 @@ texture_pressed = ExtResource( 5 )
 texture_disabled = ExtResource( 7 )
 script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="Vertical box/Play"]
+[node name="Label" type="Label" parent="Menu/Play"]
 margin_right = 188.0
 margin_bottom = 45.0
 text = "Play Golf."
@@ -64,7 +58,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Options" type="TextureButton" parent="Vertical box"]
+[node name="Options" type="TextureButton" parent="Menu"]
 margin_top = 194.0
 margin_right = 190.0
 margin_bottom = 243.0
@@ -73,7 +67,7 @@ texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 texture_disabled = ExtResource( 7 )
 
-[node name="Label" type="Label" parent="Vertical box/Options"]
+[node name="Label" type="Label" parent="Menu/Options"]
 margin_right = 188.0
 margin_bottom = 45.0
 text = "Options."
@@ -82,7 +76,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="TextureButton" parent="Vertical box"]
+[node name="Quit" type="TextureButton" parent="Menu"]
 margin_top = 293.0
 margin_right = 190.0
 margin_bottom = 342.0
@@ -92,7 +86,7 @@ texture_pressed = ExtResource( 5 )
 texture_disabled = ExtResource( 7 )
 script = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="Vertical box/Quit"]
+[node name="Label" type="Label" parent="Menu/Quit"]
 margin_right = 188.0
 margin_bottom = 45.0
 text = "Quit."
@@ -100,5 +94,129 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Vertical box/Play" to="Vertical box/Play" method="_on_Play_pressed"]
-[connection signal="pressed" from="Vertical box/Quit" to="Vertical box/Quit" method="_on_Quit_pressed"]
+
+[node name="Playerselect" type="ItemList" parent="."]
+visible = false
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 6 )
+
+[node name="HowMany" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 433.0
+margin_top = 159.0
+margin_right = 590.0
+margin_bottom = 441.0
+custom_constants/separation = 34
+
+[node name="1player" type="Button" parent="HowMany"]
+margin_right = 157.0
+margin_bottom = 45.0
+theme = ExtResource( 1 )
+text = "1 Player"
+script = ExtResource( 8 )
+
+[node name="2player" type="Button" parent="HowMany"]
+margin_top = 79.0
+margin_right = 157.0
+margin_bottom = 124.0
+theme = ExtResource( 1 )
+text = "2 Player"
+script = ExtResource( 8 )
+p = 2
+
+[node name="3player" type="Button" parent="HowMany"]
+margin_top = 158.0
+margin_right = 157.0
+margin_bottom = 203.0
+theme = ExtResource( 1 )
+text = "3 Player"
+script = ExtResource( 8 )
+p = 3
+
+[node name="4player" type="Button" parent="HowMany"]
+margin_top = 237.0
+margin_right = 157.0
+margin_bottom = 282.0
+theme = ExtResource( 1 )
+text = "4 Player"
+script = ExtResource( 8 )
+p = 4
+
+[node name="MapSelect" type="Control" parent="."]
+visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Diorama_Vport" type="ViewportContainer" parent="MapSelect"]
+margin_left = 552.0
+margin_top = 36.0
+margin_right = 944.0
+margin_bottom = 569.0
+rect_min_size = Vector2( 0.267, 0.292 )
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="MapSelect/Diorama_Vport"]
+size = Vector2( 392, 533 )
+handle_input_locally = false
+hdr = false
+render_target_update_mode = 0
+gui_disable_input = true
+
+[node name="Diorama" type="MeshInstance" parent="MapSelect/Diorama_Vport/Viewport"]
+mesh = SubResource( 1 )
+material/0 = null
+script = ExtResource( 9 )
+
+[node name="Camera" type="Camera" parent="MapSelect/Diorama_Vport/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.05126 )
+environment = SubResource( 2 )
+
+[node name="Sun" type="DirectionalLight" parent="MapSelect/Diorama_Vport/Viewport"]
+transform = Transform( 0.726766, 0.543685, -0.419783, 0, 0.61114, 0.791522, 0.686885, -0.575252, 0.444156, -4.19895, 0, 0 )
+
+[node name="Selectbuttons" type="GridContainer" parent="MapSelect"]
+visible = false
+margin_left = 15.0
+margin_top = 221.0
+margin_right = 302.0
+margin_bottom = 378.0
+custom_constants/vseparation = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ph_button" type="Button" parent="MapSelect/Selectbuttons"]
+margin_right = 279.0
+margin_bottom = 45.0
+theme = ExtResource( 1 )
+text = "Par Harbor"
+
+[node name="ff_button" type="Button" parent="MapSelect/Selectbuttons"]
+margin_top = 56.0
+margin_right = 279.0
+margin_bottom = 101.0
+theme = ExtResource( 1 )
+text = "Forest of Fright"
+
+[node name="lv_button" type="Button" parent="MapSelect/Selectbuttons"]
+margin_top = 112.0
+margin_right = 279.0
+margin_bottom = 157.0
+theme = ExtResource( 1 )
+text = "La Voyage"
+
+[node name="BG" type="Sprite" parent="."]
+centered = false
+[connection signal="pressed" from="Menu/Play" to="Menu/Play" method="_on_Play_pressed"]
+[connection signal="pressed" from="Menu/Quit" to="Menu/Quit" method="_on_Quit_pressed"]
+[connection signal="pressed" from="HowMany/1player" to="HowMany/1player" method="_on_pressed"]
+[connection signal="pressed" from="HowMany/2player" to="HowMany/2player" method="_on_pressed"]
+[connection signal="pressed" from="HowMany/3player" to="HowMany/3player" method="_on_pressed"]
+[connection signal="pressed" from="HowMany/4player" to="HowMany/4player" method="_on_pressed"]
