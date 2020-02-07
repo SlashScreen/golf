@@ -86,4 +86,5 @@ cam_zoom_out={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.301961, 0.301961, 0.301961, 0 )
 environment/default_environment="res://Misc/default_env.tres"

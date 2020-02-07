@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Misc/Hud_Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/buttons/Play.gd" type="Script" id=2]
@@ -9,14 +9,20 @@
 [ext_resource path="res://assets/graphics/UI/PNG/grey_button00.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/playerbutton.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Diorama.gd" type="Script" id=9]
-
-[sub_resource type="CubeMesh" id=1]
+[ext_resource path="res://Scripts/mainPlay.gd" type="Script" id=10]
+[ext_resource path="res://assets/graphics/tempmenubg.jpg" type="Texture" id=11]
+[ext_resource path="res://assets/models/dioramas/test.tres" type="CubeMesh" id=12]
 
 [sub_resource type="Environment" id=2]
-background_mode = 1
-background_color = Color( 0.764706, 0.988235, 0.956863, 1 )
+background_color = Color( 0.764706, 0.988235, 0.956863, 0 )
+ssao_enabled = true
 
 [node name="MainMenu" type="Node2D"]
+
+[node name="BG" type="Sprite" parent="."]
+scale = Vector2( 1.07245, 1.07245 )
+texture = ExtResource( 11 )
+centered = false
 
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 417.0
@@ -47,7 +53,7 @@ theme = ExtResource( 1 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 texture_disabled = ExtResource( 7 )
-script = ExtResource( 2 )
+script = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="Menu/Play"]
 margin_right = 188.0
@@ -164,13 +170,14 @@ __meta__ = {
 
 [node name="Viewport" type="Viewport" parent="MapSelect/Diorama_Vport"]
 size = Vector2( 392, 533 )
+transparent_bg = true
 handle_input_locally = false
 hdr = false
 render_target_update_mode = 0
 gui_disable_input = true
 
 [node name="Diorama" type="MeshInstance" parent="MapSelect/Diorama_Vport/Viewport"]
-mesh = SubResource( 1 )
+mesh = ExtResource( 12 )
 material/0 = null
 script = ExtResource( 9 )
 
@@ -182,7 +189,6 @@ environment = SubResource( 2 )
 transform = Transform( 0.726766, 0.543685, -0.419783, 0, 0.61114, 0.791522, 0.686885, -0.575252, 0.444156, -4.19895, 0, 0 )
 
 [node name="Selectbuttons" type="GridContainer" parent="MapSelect"]
-visible = false
 margin_left = 15.0
 margin_top = 221.0
 margin_right = 302.0
@@ -197,6 +203,8 @@ margin_right = 279.0
 margin_bottom = 45.0
 theme = ExtResource( 1 )
 text = "Par Harbor"
+script = ExtResource( 2 )
+map = "ParHarbor"
 
 [node name="ff_button" type="Button" parent="MapSelect/Selectbuttons"]
 margin_top = 56.0
@@ -204,6 +212,7 @@ margin_right = 279.0
 margin_bottom = 101.0
 theme = ExtResource( 1 )
 text = "Forest of Fright"
+script = ExtResource( 2 )
 
 [node name="lv_button" type="Button" parent="MapSelect/Selectbuttons"]
 margin_top = 112.0
@@ -211,12 +220,16 @@ margin_right = 279.0
 margin_bottom = 157.0
 theme = ExtResource( 1 )
 text = "La Voyage"
-
-[node name="BG" type="Sprite" parent="."]
-centered = false
+script = ExtResource( 2 )
 [connection signal="pressed" from="Menu/Play" to="Menu/Play" method="_on_Play_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="Menu/Quit" method="_on_Quit_pressed"]
 [connection signal="pressed" from="HowMany/1player" to="HowMany/1player" method="_on_pressed"]
 [connection signal="pressed" from="HowMany/2player" to="HowMany/2player" method="_on_pressed"]
 [connection signal="pressed" from="HowMany/3player" to="HowMany/3player" method="_on_pressed"]
 [connection signal="pressed" from="HowMany/4player" to="HowMany/4player" method="_on_pressed"]
+[connection signal="mouse_hover" from="MapSelect/Selectbuttons/ph_button" to="MapSelect/Diorama_Vport/Viewport/Diorama" method="_on_button_mouse_hover"]
+[connection signal="pressed" from="MapSelect/Selectbuttons/ph_button" to="MapSelect/Selectbuttons/ph_button" method="_on_Play_pressed"]
+[connection signal="mouse_hover" from="MapSelect/Selectbuttons/ff_button" to="MapSelect/Diorama_Vport/Viewport/Diorama" method="_on_button_mouse_hover"]
+[connection signal="pressed" from="MapSelect/Selectbuttons/ff_button" to="MapSelect/Selectbuttons/ff_button" method="_on_Play_pressed"]
+[connection signal="mouse_hover" from="MapSelect/Selectbuttons/lv_button" to="MapSelect/Diorama_Vport/Viewport/Diorama" method="_on_button_mouse_hover"]
+[connection signal="pressed" from="MapSelect/Selectbuttons/lv_button" to="MapSelect/Selectbuttons/lv_button" method="_on_Play_pressed"]
