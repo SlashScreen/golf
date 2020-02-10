@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Misc/Hud_Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/buttons/Play.gd" type="Script" id=2]
@@ -12,8 +12,9 @@
 [ext_resource path="res://Scripts/mainPlay.gd" type="Script" id=10]
 [ext_resource path="res://assets/graphics/tempmenubg.jpg" type="Texture" id=11]
 [ext_resource path="res://assets/models/dioramas/test.tres" type="CubeMesh" id=12]
+[ext_resource path="res://Scripts/buttons/choosemap.gd" type="Script" id=13]
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=1]
 background_color = Color( 0.764706, 0.988235, 0.956863, 0 )
 ssao_enabled = true
 
@@ -101,14 +102,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Playerselect" type="ItemList" parent="."]
-visible = false
-margin_left = 512.0
-margin_top = 300.0
-margin_right = 512.0
-margin_bottom = 300.0
-script = ExtResource( 6 )
-
 [node name="HowMany" type="VBoxContainer" parent="."]
 visible = false
 margin_left = 433.0
@@ -151,6 +144,49 @@ text = "4 Player"
 script = ExtResource( 8 )
 p = 4
 
+[node name="Customizescreen" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choose map" type="TextureButton" parent="Customizescreen"]
+margin_left = 417.0
+margin_top = 515.81
+margin_right = 607.0
+margin_bottom = 564.81
+theme = ExtResource( 1 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_disabled = ExtResource( 7 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Customizescreen/Choose map"]
+margin_left = 4.52441
+margin_top = 1.50818
+margin_right = 192.524
+margin_bottom = 46.5082
+text = "Continue"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Customize" type="GridContainer" parent="Customizescreen"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+columns = 2
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MapSelect" type="Control" parent="."]
 visible = false
 __meta__ = {
@@ -183,7 +219,7 @@ script = ExtResource( 9 )
 
 [node name="Camera" type="Camera" parent="MapSelect/Diorama_Vport/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.05126 )
-environment = SubResource( 2 )
+environment = SubResource( 1 )
 
 [node name="Sun" type="DirectionalLight" parent="MapSelect/Diorama_Vport/Viewport"]
 transform = Transform( 0.726766, 0.543685, -0.419783, 0, 0.61114, 0.791522, 0.686885, -0.575252, 0.444156, -4.19895, 0, 0 )
@@ -227,6 +263,7 @@ script = ExtResource( 2 )
 [connection signal="pressed" from="HowMany/2player" to="HowMany/2player" method="_on_pressed"]
 [connection signal="pressed" from="HowMany/3player" to="HowMany/3player" method="_on_pressed"]
 [connection signal="pressed" from="HowMany/4player" to="HowMany/4player" method="_on_pressed"]
+[connection signal="pressed" from="Customizescreen/Choose map" to="Customizescreen/Choose map" method="_on_Choose_map_pressed"]
 [connection signal="mouse_hover" from="MapSelect/Selectbuttons/ph_button" to="MapSelect/Diorama_Vport/Viewport/Diorama" method="_on_button_mouse_hover"]
 [connection signal="pressed" from="MapSelect/Selectbuttons/ph_button" to="MapSelect/Selectbuttons/ph_button" method="_on_Play_pressed"]
 [connection signal="mouse_hover" from="MapSelect/Selectbuttons/ff_button" to="MapSelect/Diorama_Vport/Viewport/Diorama" method="_on_button_mouse_hover"]

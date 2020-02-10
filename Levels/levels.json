@@ -3,8 +3,7 @@
 		"info":{
 			"name":"Test world",
 			"description":"A boring test world. Non-developers shouldn't be able to see this...",
-			"path":"res://Levels/test_level.tscn",
-			"thumb":"res://assets/graphics/icon.png",
+			"path":"res://Levels/test_level.tscn"
 		},
 		"holes":{
 			"0":{
@@ -14,6 +13,20 @@
 			"1":{
 				"par":3,
 				"origin":{"x":-23.414,"y":-19.446,"z":24.23}
+			}
+		}
+		
+	},
+	"ParHarbor":{
+		"info":{
+			"name":"Par Harbor",
+			"description":"A pleasant harbor, adorned by its famous lighthouse.",
+			"path":"res://Levels/ParHarbor.tscn"
+		},
+		"holes":{
+			"0":{
+				"par":3,
+				"origin":{"x":42.724,"y":6.144,"z":75.929}
 			}
 		}
 		
