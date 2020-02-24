@@ -11,3 +11,5 @@ fog_depth_curve = 0.170755
 fog_height_enabled = true
 fog_height_curve = 0.153893
 ssao_enabled = true
+adjustment_enabled = true
+adjustment_saturation = 2.57

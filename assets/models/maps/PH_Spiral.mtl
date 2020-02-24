@@ -1,0 +1,47 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl golfBorder (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.372549 0.2039216 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfGreen (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.1921569 0.9490196 0.6862745 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl black (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.2666667 0.2666667 0.2666667 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfBorder (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.372549 0.2039216 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfGreen (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.1921569 0.9490196 0.6862745 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfBuilding (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.7137255 0.4078431 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl golfBuilding (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.7137255 0.4078431 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl _defaultMat (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl wood (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.8823529 0.5787579 0.4022492 
+Ks 0.330000 0.330000 0.330000 
+

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/PH_Spiral.obj-3c15396bf0029a96b1f557e43e7e6f4c.mesh"
+
+[deps]
+
+files=[ "res://.import/PH_Spiral.obj-3c15396bf0029a96b1f557e43e7e6f4c.mesh" ]
+
+source_file="res://assets/models/maps/PH_Spiral.obj"
+dest_files=[ "res://.import/PH_Spiral.obj-3c15396bf0029a96b1f557e43e7e6f4c.mesh", "res://.import/PH_Spiral.obj-3c15396bf0029a96b1f557e43e7e6f4c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

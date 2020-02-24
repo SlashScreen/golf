@@ -1,0 +1,62 @@
+# Blender MTL File: 'PH_Metro.blend'
+# Material Count: 6
+
+newmtl golfBorder_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 0.372549 0.203922
+Ks 0.330000 0.330000 0.330000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl golfBorder_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 0.372549 0.203922
+Ks 0.330000 0.330000 0.330000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl golfBorder_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 0.372549 0.203922
+Ks 0.330000 0.330000 0.330000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl golfGreen_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.192157 0.949020 0.686275
+Ks 0.330000 0.330000 0.330000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl golfGreen_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.192157 0.949020 0.686275
+Ks 0.330000 0.330000 0.330000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl golfGreen_(Instance)_(Instance)_(Instance)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.192157 0.949020 0.686275
+Ks 0.330000 0.330000 0.330000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 2

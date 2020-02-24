@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/course follow/coursecam.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/course follow/coursefollowcam.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/course follow/Campoint.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/course follow/holecam.gd" type="Script" id=4]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array(  ),
+"tilts": PoolRealArray(  )
+}
+
+[node name="CourseCam" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 1 )
+
+[node name="Campoint" type="PathFollow" parent="Path"]
+script = ExtResource( 3 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+target = NodePath("../Path/Campoint")
+enabled = true
+script = ExtResource( 2 )
+
+[node name="holecam" type="Spatial" parent="."]
+script = ExtResource( 4 )
+
+[node name="ClippedCamera" type="ClippedCamera" parent="holecam"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.04821 )
+margin = 0.1
+[connection signal="beginFollow" from="." to="Path/Campoint" method="_on_CourseCam_beginFollow"]
+[connection signal="followCam" from="." to="InterpolatedCamera" method="_on_Spatial_followCam"]
+[connection signal="holeCam" from="." to="holecam" method="_on_CourseCam_holeCam"]
+[connection signal="finished" from="Path/Campoint" to="." method="_on_Campoint_finished"]
+[connection signal="holeFinished" from="holecam" to="." method="_on_holecam_holeFinished"]

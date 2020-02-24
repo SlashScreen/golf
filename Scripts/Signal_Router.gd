@@ -110,6 +110,9 @@ func on_game_won():
 	#next hole
 	new_hole()
 
+func camFinished():
+	pass
+
 func switch_players(player):
 	if howManyPlayers > 1:
 		print("\nSWITCH to " + str(player) + "\n")
